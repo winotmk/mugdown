@@ -1197,9 +1197,29 @@ export default function App() {
             );
             if (link) {
               e.preventDefault();
-              void window.mugdown
-                .openExternal(link.getAttribute("href") ?? "")
-                .catch(fail);
+              const href = link.getAttribute("href") ?? "";
+              if (href.startsWith("#")) {
+                let id = href.slice(1);
+                try {
+                  id = decodeURIComponent(id);
+                } catch {}
+                const headings = e.currentTarget.querySelectorAll(
+                  ".ProseMirror :is([id], h1, h2, h3, h4, h5, h6)",
+                );
+                const target = Array.from(headings).find(
+                  (node) =>
+                    node.id === id ||
+                    (/^H[1-6]$/.test(node.tagName) &&
+                      node.textContent
+                        ?.toLowerCase()
+                        .trim()
+                        .replace(/[^\p{L}\p{N}\s_-]/gu, "")
+                        .replace(/\s+/g, "-") === id),
+                );
+                target?.scrollIntoView({ block: "start" });
+                return;
+              }
+              void window.mugdown.openExternal(href).catch(fail);
             }
           }}
           onContextMenu={(e) => {
@@ -1568,7 +1588,7 @@ export default function App() {
               )}
             </div>
             <p className="dialog-footnote">
-              mugdown 0.2.6 ·{" "}
+              mugdown 0.2.7 ·{" "}
               {native ? (mac ? "macOS" : "Windows") : t("浏览器预览")}{" "}
               {t("· 本地 Markdown 编辑器")}{" "}
             </p>

@@ -72,7 +72,6 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
 ) {
   const root = useRef<HTMLDivElement>(null),
     editor = useRef<Crepe | null>(null),
-    commentMarker = useRef(""),
     synchronize = useRef<((value: string) => void) | null>(null),
     emitLatest = useRef<(() => void) | null>(null),
     latestValue = useRef(value);
@@ -88,9 +87,7 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
       flush: () => emitLatest.current?.(),
       replace: (text) => synchronize.current?.(text),
       insert: (text) =>
-        editor.current?.editor.action(
-          insert(prepareRichBody(text, commentMarker.current)),
-        ),
+        editor.current?.editor.action(insert(prepareRichBody(text))),
       focus: () =>
         editor.current?.editor.action((ctx) => ctx.get(editorViewCtx).focus()),
       search: (query, backwards, replacement, all) => {
@@ -225,7 +222,6 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
       appliedValue = value;
     let lastDocument: ProseNode | null = null;
     const marker = "mugdown-comment-" + crypto.randomUUID().slice(0, 8);
-    commentMarker.current = marker;
     const labelComments = () => {
       root.current
         ?.querySelectorAll(".milkdown-code-block")
@@ -253,7 +249,7 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
       );
     const crepe = new Crepe({
       root: root.current,
-      defaultValue: prepareRichBody(value, marker),
+      defaultValue: prepareRichBody(value),
       features: {
         [Crepe.Feature.AI]: false,
         [Crepe.Feature.TopBar]: false,
@@ -365,7 +361,6 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
           ctx,
           () => emitLatest.current?.(),
           (message) => error.current(message),
-          marker,
         ),
       );
     const shortcuts = (event: KeyboardEvent) => {
@@ -433,7 +428,7 @@ export const RichEditor = forwardRef<EditorHandle, Props>(function RichEditor(
           const previousHead = crepe.editor.action(
             (ctx) => ctx.get(editorViewCtx).state.selection.head,
           );
-          crepe.editor.action(replaceAll(prepareRichBody(next, marker)));
+          crepe.editor.action(replaceAll(prepareRichBody(next)));
           crepe.editor.action((ctx) => {
             const view = ctx.get(editorViewCtx);
             view.dispatch(

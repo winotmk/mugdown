@@ -1,4 +1,4 @@
-mugdown 0.2.6 · Windows x64 便携版
+mugdown 0.2.7 · Windows x64 便携版
 
 解压后运行 mugdown.exe。支持 Windows 10/11，需要 Microsoft Edge WebView2 Runtime（Windows 11 及大多数 Windows 10 电脑已具备）。无需安装 Node.js、Rust、Git 或 .NET。
 
@@ -27,3 +27,5 @@ macOS 使用同一项目源码构建，通用包覆盖 Apple Silicon 与 Intel�
 开源组件、皮肤与字体的许可证见 licenses 文件夹。
 
 0.2.6：块编辑菜单和颜色面板继承当前皮肤，与选区浮动工具栏统一底色、文字和阴影，修正透明背景及滚动条颜色错配。
+
+0.2.7：修复 Markdown 混排 HTML 无法渲染的问题。段落左侧菜单可以插入 HTML 块，输入源码后点击「应用」。HTML 块可重新编辑，保存保留源码。

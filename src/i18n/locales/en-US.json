@@ -1,6 +1,8 @@
 {
   "name": "English",
   "messages": {
+    "插入 HTML 块": "Insert HTML block",
+    "输入 HTML 源码…": "Enter HTML source…",
     "\n| 标题 | 内容 |\n| --- | --- |\n|  |  |\n": "\n| Heading | Content |\n| --- | --- |\n|  |  |\n",
     "0 项": "0 matches",
     "CSS 文件过大": "The CSS file is too large",

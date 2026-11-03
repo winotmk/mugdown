@@ -3,18 +3,104 @@ import { $node, $remark, $view } from "@milkdown/kit/utils";
 import DOMPurify from "dompurify";
 import MarkdownIt from "markdown-it";
 import deflist from "markdown-it-deflist";
+import { markRichExtensions } from "../shared/rich-syntax";
 
 const markdown = new MarkdownIt({ html: true }).use(deflist);
+const previewOptions = {
+  FORBID_TAGS: [
+    "script",
+    "style",
+    "iframe",
+    "object",
+    "embed",
+    "form",
+    "input",
+    "button",
+    "base",
+    "link",
+    "meta",
+  ],
+  FORBID_ATTR: ["style", "autoplay", "srcset"],
+};
+
+function showPreview(target: HTMLElement, html: string, documentId: string) {
+  target.innerHTML = DOMPurify.sanitize(html, previewOptions);
+  for (const media of target.querySelectorAll("video,audio")) {
+    media.setAttribute("preload", "none");
+    media.setAttribute("controls", "");
+  }
+  for (const image of target.querySelectorAll("img[src]")) {
+    const url = image.getAttribute("src")!;
+    void window.mugdown
+      .imageSource(documentId, url)
+      .then((src) => {
+        if (target.contains(image)) image.setAttribute("src", src);
+      })
+      .catch(() => {});
+  }
+}
+
 export function blogExtensions(marker: string, articleId: string) {
-  const remark = $remark("winotypo-extensions", () => () => (tree: any) => {
-    const visit = (node: any) => {
-      if (node.type === "code" && String(node.lang).startsWith(marker + "-")) {
-        node.kind = node.lang.slice(marker.length + 1);
-        node.type = "winotypoExtension";
-      }
-      node.children?.forEach(visit);
+  const remark = $remark(
+    "winotypo-extensions",
+    () => () => (tree: any, file: unknown) => {
+      markRichExtensions(tree, String(file), marker);
+    },
+  );
+  const inline = $node("mugdown_inline_html", () => ({
+    group: "inline",
+    inline: true,
+    atom: true,
+    attrs: { raw: { default: "" } },
+    toDOM: (node) => [
+      "span",
+      { "data-mugdown-inline-html": node.attrs.raw },
+      node.attrs.raw,
+    ],
+    parseDOM: [
+      {
+        tag: "span[data-mugdown-inline-html]",
+        getAttrs: (dom: HTMLElement) => ({
+          raw: dom.getAttribute("data-mugdown-inline-html") ?? "",
+        }),
+      },
+    ],
+    parseMarkdown: {
+      match: (node) => node.type === "mugdownInlineHtml",
+      runner: (state, node, type) => {
+        state.addNode(type, { raw: node.value ?? "" });
+      },
+    },
+    toMarkdown: {
+      match: (node) => node.type.name === "mugdown_inline_html",
+      runner: (state, node) => {
+        if (node.attrs.raw) state.addNode("html", undefined, node.attrs.raw);
+      },
+    },
+  }));
+  const inlineView = $view(inline, () => (initial) => {
+    const dom = document.createElement("span");
+    dom.className = "inline-html-fragment";
+    dom.title = "HTML";
+    dom.contentEditable = "false";
+    let raw: string | undefined;
+    const render = (value: string) => {
+      if (value === raw) return;
+      raw = value;
+      showPreview(dom, markdown.renderInline(raw), articleId);
     };
-    visit(tree);
+    render(initial.attrs.raw);
+    return {
+      dom,
+      update(node) {
+        if (node.type !== initial.type) return false;
+        render(node.attrs.raw);
+        return true;
+      },
+      stopEvent: (event) =>
+        event.target instanceof Element && !!event.target.closest("a"),
+      ignoreMutation: () => true,
+    };
   });
   const schema = $node("blog_extension", () => ({
     group: "block",
@@ -44,13 +130,16 @@ export function blogExtensions(marker: string, articleId: string) {
     toMarkdown: {
       match: (node) => node.type.name === "blog_extension",
       runner: (state, node) => {
-        state.addNode("html", undefined, node.attrs.raw);
+        // Milkdown drops an empty value; mdast's HTML boundary check requires
+        // a string. An emptied fragment has no output.
+        if (node.attrs.raw) state.addNode("html", undefined, node.attrs.raw);
       },
     },
   }));
   const view = $view(schema, () => (initialNode, editor, getPos) => {
     let current = initialNode,
-      disposed = false;
+      renderedRaw: string | undefined,
+      renderedKind: string | undefined;
     const dom = document.createElement("section");
     dom.className = "blog-extension";
     dom.contentEditable = "false";
@@ -69,6 +158,7 @@ export function blogExtensions(marker: string, articleId: string) {
     source.className = "extension-source";
     source.hidden = true;
     textarea.setAttribute("aria-label", t("扩展片段内容"));
+    textarea.placeholder = t("输入 HTML 源码…");
     textarea.spellcheck = false;
     const actions = document.createElement("div"),
       apply = document.createElement("button"),
@@ -82,13 +172,18 @@ export function blogExtensions(marker: string, articleId: string) {
     source.append(textarea, actions);
     dom.append(tools, preview, source);
     const render = () => {
+      const raw = String(current.attrs.raw ?? "");
+      const kind = current.attrs.kind;
+      if (raw === renderedRaw && kind === renderedKind) return;
+      renderedRaw = raw;
+      renderedKind = kind;
+      dom.dataset.kind = kind;
       label.textContent =
         current.attrs.kind === "html"
           ? "HTML"
           : current.attrs.kind === "definition"
             ? t("定义列表")
             : t("博客模板");
-      const raw = String(current.attrs.raw);
       let html = markdown.render(raw);
       if (current.attrs.kind === "template") {
         const figure =
@@ -101,54 +196,36 @@ export function blogExtensions(marker: string, articleId: string) {
           html = image.outerHTML;
         }
       }
-      preview.innerHTML = DOMPurify.sanitize(html, {
-        FORBID_TAGS: [
-          "script",
-          "style",
-          "iframe",
-          "object",
-          "embed",
-          "form",
-          "input",
-          "button",
-        ],
-        FORBID_ATTR: ["style", "autoplay"],
-      });
-      preview.querySelectorAll("video,audio").forEach((media) => {
-        media.setAttribute("preload", "none");
-        media.setAttribute("controls", "");
-      });
-      preview.querySelectorAll("img").forEach((image) => {
-        const url = image.getAttribute("src") ?? "";
-        void window.mugdown
-          .imageSource(articleId, url)
-          .then((src) => {
-            if (!disposed && image.isConnected) image.src = src;
-          })
-          .catch(() => {});
-      });
+      showPreview(preview, html, articleId);
     };
-    preview.addEventListener("click", (event) => {
-      const link = (event.target as Element).closest("a");
-      if (link) {
-        event.preventDefault();
-        void window.mugdown.openExternal(link.href).catch(() => {});
-      }
-    });
-    edit.onclick = () => {
+    const open = () => {
       textarea.value = current.attrs.raw;
       source.hidden = false;
       preview.hidden = true;
       edit.hidden = true;
       textarea.focus();
     };
+    edit.onclick = open;
     const close = () => {
       source.hidden = true;
       preview.hidden = false;
       edit.hidden = false;
     };
-    cancel.onclick = close;
+    const remove = () => {
+      const pos = getPos();
+      if (typeof pos === "number")
+        editor.dispatch(editor.state.tr.delete(pos, pos + current.nodeSize));
+      editor.focus();
+    };
+    cancel.onclick = () => {
+      if (!current.attrs.raw) remove();
+      else close();
+    };
     apply.onclick = () => {
+      if (!textarea.value.trim()) {
+        remove();
+        return;
+      }
       const pos = getPos();
       if (typeof pos === "number")
         editor.dispatch(
@@ -158,8 +235,13 @@ export function blogExtensions(marker: string, articleId: string) {
           }),
         );
       close();
+      editor.focus();
     };
     render();
+    if (!initialNode.attrs.raw)
+      requestAnimationFrame(() => {
+        if (dom.isConnected && !current.attrs.raw) open();
+      });
     return {
       dom,
       update(node) {
@@ -173,10 +255,7 @@ export function blogExtensions(marker: string, articleId: string) {
           "textarea,button,a,summary,video,audio",
         ),
       ignoreMutation: () => true,
-      destroy() {
-        disposed = true;
-      },
     };
   });
-  return [...remark, schema, view];
+  return [...remark, schema, view, inline, inlineView];
 }

@@ -9,7 +9,6 @@ import type { EditorView } from "@milkdown/kit/prose/view";
 import type { Node } from "@milkdown/kit/prose/model";
 import { richEdit } from "./EditorTools";
 import { insert } from "@milkdown/kit/utils";
-import { prepareRichBody } from "../shared/rich-syntax";
 import { bindBlockDrag } from "./BlockDrag";
 
 function ancestor(view: EditorView, names: string[]) {
@@ -119,7 +118,6 @@ export function configureSemanticBlockHandle(
   ctx: Ctx,
   changed: () => void,
   error: (value: string) => void,
-  marker: string,
 ) {
   ctx.set(blockConfig.key, {
     filterNodes: (_pos, node) =>
@@ -289,6 +287,7 @@ export function configureSemanticBlockHandle(
         for (const [name, label] of [
           ["image", t("插入图片")],
           ["table", t("插入表格")],
+          ["html", t("插入 HTML 块")],
           ["divider", t("插入分隔线")],
           ["excerpt", t("插入摘要分隔线")],
         ]) {
@@ -303,9 +302,14 @@ export function configureSemanticBlockHandle(
               const parent = view.state.selection.$from.parent;
               if (!parent.isTextblock || parent.content.size > 0)
                 await richEdit(view, "paragraph-after");
-              if (name === "image") {
+              if (name === "image" || name === "html") {
                 const node =
-                  view.state.schema.nodes["image-block"]?.createAndFill();
+                  name === "html"
+                    ? view.state.schema.nodes.blog_extension?.create({
+                        kind: "html",
+                        raw: "",
+                      })
+                    : view.state.schema.nodes["image-block"]?.createAndFill();
                 if (node)
                   view.dispatch(
                     view.state.tr.replaceSelectionWith(node).scrollIntoView(),
@@ -316,7 +320,7 @@ export function configureSemanticBlockHandle(
                     ? t("| 标题 | 内容 |\n| --- | --- |\n|  |  |\n")
                     : name === "divider"
                       ? "\n---\n"
-                      : prepareRichBody("\n<!--more-->\n", marker),
+                      : "\n<!--more-->\n",
                 )(ctx);
               view.focus();
               changed();

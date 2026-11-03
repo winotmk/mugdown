@@ -24,7 +24,6 @@ __pycache__/
 
 # Local development notes and older QA captures.
 /docs/project-layout.md
-/docs/icon-generation.md
 /docs/verification*.md
 /docs/mugdown-*.png
 /docs/english-draft.png

@@ -1,8 +1,8 @@
 <div align="center">
   <img src="src-tauri/icons/128x128.png" alt="mugdown 咖啡杯图标" width="96" height="96">
   <h1>mugdown</h1>
-  <p>打开一份 Markdown，留一点空白给写作。</p>
-  <p><strong>Windows x64 便携版 · ZIP 约 2.49 MB · 简体中文 / English</strong></p>
+  <p>一个极简小巧的本地 Markdown 编辑器，支持 Windows 与 macOS</p>
+  <p><strong>Windows x64 便携版 · ZIP 约 2.5 MB · 简体中文 / English</strong></p>
   <p><a href="https://github.com/winotmk/mugdown/releases/latest"><strong>下载最新版</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#从源码构建">从源码构建</a></p>
 </div>
 
@@ -10,7 +10,7 @@
 
 mugdown 是一个小巧的本地 Markdown 编辑器。直接打开、编辑和保存普通 `.md` 文件，不需要账号，也不用导入到专有文档库。窗口默认没有侧栏；只打开一个文档时，标签栏也会让出空间。
 
-Windows x64 v0.2.6 的便携 ZIP 约 **2.49 MB**，解压后的主程序约 **4.21 MB**。它使用系统的 WebView2 运行时，发布包不内置浏览器。
+Windows x64 的便携 ZIP 约 **2.5 MB**，解压后的主程序约 **4.2 MB**。它使用系统的 WebView2 运行时，发布包不内置浏览器。
 
 | 桌面平台 | 系统 WebView | 当前状态 |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Windows x64 v0.2.6 的便携 ZIP 约 **2.49 MB**，解压后的主程序约 **4.
 | macOS（Apple Silicon / Intel） | WKWebView | 已配置通用构建，待实机验收 |
 | 图形桌面 Linux | WebKitGTK | 架构可移植，待平台适配和验收 |
 
-## 两个值得一试的设计
+## 设计
 
 ### 工具栏，用到时再展开
 
@@ -46,6 +46,7 @@ Windows x64 v0.2.6 的便携 ZIP 约 **2.49 MB**，解压后的主程序约 **4.
 3. 把 Markdown 文件拖入窗口，或按 <kbd>Ctrl</kbd> + <kbd>O</kbd> 打开。<kbd>Ctrl</kbd> + <kbd>S</kbd> 保存，<kbd>Ctrl</kbd> + <kbd>/</kbd> 切换可视化与 MD 源码。
 
 - **整理段落**：悬停到段落左侧，点击类型按钮转换格式，或拖住点阵把手调整顺序。
+- **编辑 HTML**：Markdown 中的 HTML 会在可视化模式渲染，独立片段带有 `HTML` 标签。可从段落左侧菜单选择「插入 HTML 块」，输入源码后点击「应用」。保存时保留原始 HTML。
 - **同时写几份文档**：打开多个文件后会显示标签。拖出标签可以拆成独立窗口；把窗口标题栏拖到另一个 mugdown 窗口中即可合并。
 - **保存图片**：粘贴到已保存的文档中，图片会存入文档旁的同名文件夹。移动文档时可以一起带走。
 - **带走偏好**：默认把 `settings.json` 存在程序旁；也可以在外观设置中改用系统目录。升级便携版时，可将旧设置和个人 `presets` 复制到新目录。
@@ -81,8 +82,29 @@ Tauri 安装包生成在 `src-tauri/target/<target>/release/bundle/`。Windows �
 
 macOS 已配置 Apple Silicon / Intel 通用构建，尚未实机验收，当前 Releases 提供 Windows 版。仓库中的 [构建工作流](.github/workflows/build.yml) 会保存 Windows 和 macOS 构建产物。
 
+`npm test` 检查文档兼容、编辑历史与语言包；`npm run build` 执行类型检查和生产构建。启动 `npm run dev` 后可运行 `npm run check:ui`，使用本机 Edge 进行界面验收。`cargo test --manifest-path src-tauri/Cargo.toml --release --features custom-protocol` 检查旧设置兼容与新设置保存。原生文件、图片和跨窗口流程由 `scripts/native-smoke.cjs` 在隔离测试目录中验证。
+
+语言配置在 `src/i18n/locales/*.json`，新增文件会自动出现在语言选择器中，具体见 [添加语言](docs/i18n.md)。
+
+图标由内置 imagegen 基于原 Winotypo 图标改为更高、圆润的空杯子；原图保持不变。图标生成记录见 [docs/icon-generation.md](docs/icon-generation.md)，产品范围见 [docs/design.md](docs/design.md)。第三方皮肤、字体与编辑器许可证随发行包保存。
+
+## 仓库目录
+
+| 目录 | 用途 |
+| --- | --- |
+| [`src/`](src/) | TypeScript 前端。`renderer/` 是桌面界面和编辑器，`shared/` 是 Markdown、主题与编辑历史逻辑，`i18n/` 是界面翻译。 |
+| [`src-tauri/`](src-tauri/) | Rust 桌面后端和 Tauri 配置，负责本地文件、窗口、剪贴板与设置；也包含应用图标和权限定义。 |
+| [`assets/`](assets/) | 随应用使用的资源，包括图标母版、排版预设和第三方授权说明。 |
+| [`docs/`](docs/) | 使用与设计文档、版本说明；`media/` 存放 README 使用的截图和动图。 |
+| [`scripts/`](scripts/) | 便携包打包、界面验证、媒体录制和授权文件整理脚本。 |
+| [`tests/`](tests/) | Markdown 保真、编辑操作和语言包等自动化测试。 |
+| [`.github/workflows/`](.github/workflows/) | GitHub Actions 的 Windows 与 macOS 构建配置。 |
+
+`node_modules/`、`out/`、`src-tauri/target/` 和 `release/` 是依赖或本地构建产物，由安装和打包命令生成。
+
 ## 版本发布
 
+- [mugdown v0.2.7](https://github.com/winotmk/mugdown/releases/tag/v0.2.7) — 修复 Markdown 与 HTML 混排；支持直接插入并编辑 HTML 块
 - [mugdown v0.2.6](https://github.com/winotmk/mugdown/releases/tag/v0.2.6) — Windows x64 便携 ZIP、SHA-256 校验文件和版本说明
 - [所有 Releases](https://github.com/winotmk/mugdown/releases)
 

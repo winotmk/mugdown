@@ -1,6 +1,6 @@
 {
   "name": "mugdown",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": true,
   "type": "module",
   "description": "A small, document-first Markdown editor for Windows and macOS",
@@ -13,7 +13,7 @@
     "package": "tauri build",
     "package:win": "tauri build --target x86_64-pc-windows-msvc",
     "package:mac": "tauri build --target universal-apple-darwin",
-    "check:ui": "node scripts/ui-v022-smoke.cjs && node scripts/window-drag-ui-smoke.cjs && node scripts/settings-ui-smoke.cjs && node scripts/editor-v025-smoke.cjs && node scripts/floating-ui-smoke.cjs"
+    "check:ui": "node scripts/ui-v022-smoke.cjs && node scripts/window-drag-ui-smoke.cjs && node scripts/settings-ui-smoke.cjs && node scripts/editor-v025-smoke.cjs && node scripts/floating-ui-smoke.cjs && node scripts/html-readme-ui-smoke.cjs"
   },
   "devDependencies": {
     "@codemirror/commands": "^6.11.1",

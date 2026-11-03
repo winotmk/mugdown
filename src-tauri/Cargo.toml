@@ -1,6 +1,6 @@
 [package]
 name = "mugdown"
-version = "0.2.6"
+version = "0.2.7"
 description = "A minimal document-first Markdown editor"
 authors = ["winotmk"]
 edition = "2021"
