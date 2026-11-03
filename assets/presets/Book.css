@@ -1,0 +1,9 @@
+/* Book — warm paper and serif type. */
+:root { --md-bg: #faf7ef; --md-fg: #403a32; --md-link: #86603b; --md-muted: #807362; --md-code-bg: #eee9de; --md-code-fg: #403a32; }
+body { font-family: Georgia, "Noto Serif SC", "Songti SC", SimSun, serif; line-height: 1.9; }
+h1, h2, h3 { font-family: inherit; border-bottom: 0; font-weight: 600; }
+h1 { text-align: center; margin-bottom: 1.4em; }
+p { margin: 1em 0; }
+blockquote { border-left: 2px solid #b6a68e; color: #756854; }
+a { color: #86603b; }
+code { color: #6c5337; background-color: #eee9de; }

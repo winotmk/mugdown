@@ -1,0 +1,7 @@
+/* Notebook — clear headings and soft reading rhythm. */
+body { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.85; }
+h1, h2, h3 { border-bottom: 0; font-weight: 600; }
+h1 { font-size: 1.9em; }
+h2 { padding-left: .6em; border-left: 3px solid var(--md-link); }
+blockquote { border: 0; background: color-mix(in srgb, var(--md-link) 7%, transparent); border-radius: 6px; padding: .7em 1em; }
+hr { height: 1px; margin: 2em 0; }

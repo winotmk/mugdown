@@ -1,0 +1,7 @@
+/* Air — spacious, quiet typography. */
+body { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.95; }
+h1, h2, h3 { font-weight: 500; border-bottom: 0; letter-spacing: .02em; }
+h1 { margin-bottom: 1em; }
+p { margin: 1.1em 0; }
+blockquote { border-left: 2px solid var(--md-link); padding-left: 1.2em; font-style: normal; }
+pre, table { border-radius: 8px; }

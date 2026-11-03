@@ -1,0 +1,355 @@
+.rich-editor {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 7px 47px 90px;
+}
+.rich-editor .milkdown {
+  --crepe-shadow-1: var(--floating-shadow);
+  background: transparent;
+  color: var(--text);
+  --crepe-color-background: var(--paper);
+  --crepe-color-on-background: var(--md-fg, var(--text));
+  --crepe-color-surface: var(--panel);
+  --crepe-color-surface-low: var(--chrome);
+  --crepe-color-on-surface: var(--text);
+  --crepe-color-on-surface-variant: var(--muted);
+  --crepe-color-outline: var(--muted);
+  --crepe-color-primary: var(--accent);
+  --crepe-color-secondary: var(--selection);
+  --crepe-color-on-secondary: var(--selection-text);
+  --crepe-color-inverse: var(--text);
+  --crepe-color-on-inverse: var(--paper);
+  --crepe-color-inline-code: var(--accent);
+  --crepe-color-error: var(--red);
+  --crepe-color-hover: var(--hover);
+  --crepe-color-selected: var(--selection);
+  --crepe-color-inline-area: var(--chrome);
+  --crepe-font-default:
+    "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --crepe-font-code: Consolas, "SFMono-Regular", monospace;
+  --crepe-font-title: "Segoe UI", "Microsoft YaHei", sans-serif;
+  --crepe-color-shadow: #0003;
+}
+.rich-editor .milkdown .ProseMirror {
+  padding: 0 !important;
+  min-height: 450px;
+  font-size: var(--editor-font) !important;
+  outline: none;
+}
+.rich-editor .milkdown .ProseMirror .list-item > .children .content-dom > p {
+  margin: 0;
+}
+.rich-editor .milkdown .ProseMirror .list-item {
+  padding: 4px 0;
+}
+.rich-editor .milkdown-code-block.preserved-comment .language-button {
+  font-size: 0;
+  pointer-events: none;
+}
+.rich-editor .milkdown-code-block.preserved-comment .language-button::before {
+  content: "原文保留 · HTML 注释";
+  font-size: 11px;
+}
+.rich-editor .milkdown-code-block.preserved-comment .expand-icon {
+  display: none;
+}
+.rich-editor .milkdown .milkdown-toolbar .toolbar-item svg,
+.rich-editor .milkdown .milkdown-slash-menu .menu-groups .menu-group li svg,
+.rich-editor .milkdown .milkdown-block-handle .operation-item svg {
+  color: var(--text);
+  fill: var(--text);
+}
+.rich-editor .milkdown .milkdown-toolbar .toolbar-item.active svg {
+  color: var(--accent);
+  fill: var(--accent);
+}
+.rich-editor .milkdown .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+.rich-editor .milkdown .milkdown-image-block {
+  margin: 1.1em 0;
+}
+.rich-editor .milkdown .ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.milkdown-block-edit,
+.milkdown-toolbar,
+.milkdown-slash-menu,
+.milkdown-link-tooltip {
+  color: var(--text);
+}
+.milkdown .cm-editor {
+  background: var(--chrome);
+}
+.milkdown .cm-editor .cm-content {
+  font:
+    13px/1.8 Consolas,
+    monospace;
+}
+.markdown-scope .milkdown .ProseMirror .list-item > .children .content-dom > p {
+  margin: 0;
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-list-item-block > .list-item {
+  list-style: none;
+}
+.markdown-scope .milkdown .ProseMirror .list-item .label-wrapper svg,
+.markdown-scope .milkdown .milkdown-block-handle .operation-item svg {
+  color: var(--md-muted);
+  fill: var(--md-muted);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block {
+  --crepe-color-surface: var(--md-code-bg);
+  --crepe-color-outline: var(--md-muted);
+  background: var(--md-code-bg);
+  color: var(--md-code-fg);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block .cm-editor {
+  background: var(--md-code-bg);
+  color: var(--md-code-fg);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block .cm-content {
+  color: var(--md-code-fg);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block .cm-gutters {
+  background: var(--md-code-bg);
+  color: var(--md-muted);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block .cm-cursor {
+  border-left-color: var(--md-code-fg);
+}
+.markdown-scope .milkdown .ProseMirror .milkdown-code-block .cm-activeLine {
+  background: transparent;
+}
+.markdown-scope .milkdown .ProseMirror .blog-extension {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.markdown-scope .milkdown .ProseMirror .extension-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 12px;
+  background: var(--chrome);
+  color: var(--muted);
+  font:
+    12px/1.5 "Segoe UI",
+    "Microsoft YaHei",
+    sans-serif;
+}
+.markdown-scope .milkdown .ProseMirror .extension-tools button {
+  color: var(--accent);
+  font: inherit;
+}
+.markdown-scope .milkdown .ProseMirror .extension-preview {
+  padding: 12px 16px;
+  overflow: auto;
+}
+.extension-preview img,
+.extension-preview video {
+  max-width: 100%;
+}
+.markdown-scope .milkdown .ProseMirror .extension-source {
+  padding: 12px;
+  background: var(--panel);
+}
+.markdown-scope .milkdown .ProseMirror .extension-source textarea {
+  width: 100%;
+  min-height: 130px;
+  font:
+    13px/1.7 Consolas,
+    "Microsoft YaHei",
+    monospace;
+}
+.extension-source > div {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.markdown-scope .ProseMirror .extension-preview dl {
+  margin: 0;
+}
+.markdown-scope .ProseMirror .extension-preview dt {
+  font-weight: 600;
+}
+.markdown-scope .ProseMirror .footnote-definition {
+  border-top: 1px solid var(--line);
+}
+.inline-color-palette,
+.block-format-menu {
+  position: fixed;
+  z-index: 90;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel, #f6f8fa);
+  color: var(--text, #24292e);
+  box-shadow: var(--floating-shadow);
+  padding: 10px;
+}
+.inline-color-palette {
+  width: 260px;
+}
+.palette-label {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 5px 2px 9px;
+}
+.inline-color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.inline-color-grid button {
+  height: 25px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.inline-color-grid button:hover {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.inline-color-palette input[type="color"] {
+  width: 42px;
+  height: 25px;
+  padding: 0;
+  vertical-align: middle;
+  border: 1px solid var(--line);
+}
+.palette-reset {
+  margin: 2px 0 10px 8px;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+}
+.block-format-menu {
+  width: 230px;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--text) 28%, var(--panel))
+    var(--panel);
+}
+.block-format-menu::-webkit-scrollbar {
+  width: 8px;
+  background: var(--panel);
+}
+.block-format-menu::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text) 28%, var(--panel));
+  border: 2px solid var(--panel);
+  border-radius: 6px;
+}
+.block-format-menu::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--text) 40%, var(--panel));
+}
+.block-format-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-align: left;
+}
+.block-format-menu button.active {
+  background: var(--hover);
+  color: var(--accent);
+}
+.block-menu-icon {
+  width: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.block-menu-check {
+  margin-left: auto;
+}
+.block-menu-help {
+  display: block;
+  padding: 9px 4px;
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 11px;
+  border-bottom: 1px solid var(--line);
+}
+.rich-editor .milkdown .semantic-block-handle {
+  gap: 0;
+  padding: 0;
+}
+.rich-editor .milkdown .semantic-block-handle .operation-item {
+  width: 22px;
+  height: 26px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+.rich-editor .milkdown .semantic-block-handle .block-type-button {
+  min-width: 22px;
+  padding: 0;
+  font: 600 12px/26px system-ui;
+  color: var(--md-fg, var(--text));
+}
+.rich-editor .milkdown .semantic-block-handle .block-type-button svg {
+  fill: none;
+  color: inherit;
+}
+.rich-editor .milkdown .semantic-block-handle .block-drag-handle {
+  width: 18px;
+  color: var(--muted);
+  cursor: grab;
+  font: 22px/26px system-ui;
+  touch-action: none;
+  user-select: none;
+}
+.block-drag-handle.moving {
+  cursor: grabbing;
+}
+html[data-block-dragging="true"],
+html[data-block-dragging="true"] * {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+.block-drop-indicator {
+  position: fixed;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--block-drop-color, #2f81f7);
+  pointer-events: none;
+  z-index: 90;
+}
+.rich-editor
+  .milkdown
+  .milkdown-toolbar
+  .toolbar-item[data-toolbar-item="underline"]
+  svg,
+.rich-editor
+  .milkdown
+  .milkdown-toolbar
+  .toolbar-item[data-toolbar-item="background"]
+  svg,
+.rich-editor
+  .milkdown
+  .milkdown-toolbar
+  .toolbar-item[data-toolbar-item="color"]
+  svg,
+.rich-editor
+  .milkdown
+  .milkdown-toolbar
+  .toolbar-item[data-toolbar-item="clear"]
+  svg {
+  fill: none;
+}
+.markdown-scope .ProseMirror u {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.markdown-scope .ProseMirror mark {
+  color: inherit;
+  border-radius: 2px;
+  padding: 0;
+}

@@ -1,0 +1,5121 @@
+/* Upstream declarations retained; selectors scoped and rem units localized for an embedded editor. */
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"] {
+  --md-rem: calc(var(--editor-font, 16px) * 1);
+  --md-bg: #ffffff;
+  --md-fg: #1f2328;
+  --md-font:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --md-link: #0969da;
+  --md-muted: #59636e;
+  --md-code-bg: #f6f8fa;
+  --md-code-fg: #1f2328;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #d1d9e0b3;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-weight: 600;
+  line-height: 1.25;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror {
+  color-scheme: light;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-weight: 400;
+  color: #1f2328;
+  background-color: #ffffff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a {
+  text-decoration: underline;
+  text-underline-offset: calc(var(--md-rem) * 0.2);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6:hover
+  .anchor
+  .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: " ";
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  details,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  figcaption,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  figure {
+  display: block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary {
+  display: list-item;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [hidden] {
+  display: none !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a {
+  background-color: rgba(0, 0, 0, 0);
+  color: #0969da;
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  abbr[title] {
+  border-bottom: none;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  b,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  strong {
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dfn {
+  font-style: italic;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1 {
+  margin: 0.67em 0;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #d1d9e0b3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  mark {
+  background-color: #fff8c5;
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  small {
+  font-size: 90%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  sub,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  sub {
+  bottom: -0.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  sup {
+  top: -0.5em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  kbd,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  figure {
+  margin: 1em calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #d1d9e0b3;
+  height: 0.25em;
+  padding: 0;
+  margin: calc(var(--md-rem) * 1.5) 0;
+  background-color: #d1d9e0;
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="button"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="reset"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="checkbox"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="number"]::-webkit-inner-spin-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="search"]::-webkit-search-cancel-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  appearance: button;
+  font: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:hover {
+  text-decoration: underline;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ::placeholder {
+  color: #59636e;
+  opacity: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  hr::before {
+  display: table;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-variant: tabular-nums;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  td,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  th {
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  details
+  summary {
+  cursor: pointer;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [role="button"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="radio"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [role="button"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="radio"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus:not(:focus-visible) {
+  outline: solid 1px rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [role="button"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="radio"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:not([class]):focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:not([class]):focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="radio"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="radio"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus-visible {
+  outline-offset: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  kbd {
+  display: inline-block;
+  padding: calc(var(--md-rem) * 0.25);
+  font:
+    11px ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  line-height: 10px;
+  color: #1f2328;
+  vertical-align: middle;
+  background-color: #f6f8fa;
+  border: solid 1px var(--borderColor-muted);
+  border-bottom-color: var(--borderColor-muted);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 var(--borderColor-muted);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6 {
+  margin-top: calc(var(--md-rem) * 1.5);
+  margin-bottom: calc(var(--md-rem) * 1);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2 {
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #d1d9e0b3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4 {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5 {
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6 {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: #59636e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #59636e;
+  border-left: 0.25em solid #d1d9e0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul
+  ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol
+  ol
+  ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dd {
+  margin-left: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  samp {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 12px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 12px;
+  word-wrap: normal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input::-webkit-outer-spin-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .mr-2 {
+  margin-right: calc(var(--md-rem) * 0.5) !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror::before {
+  display: table;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  > *:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .absent {
+  color: #d1242f;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .anchor {
+  float: left;
+  padding-right: calc(var(--md-rem) * 0.25);
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .anchor:focus {
+  outline: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  p,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dl,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  details {
+  margin-top: 0;
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote
+  > :first-child {
+  margin-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6
+  .octicon-link {
+  color: #1f2328;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6:hover
+  .anchor {
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6:hover
+  .anchor
+  .octicon-link {
+  visibility: visible;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h1
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h2
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h3
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h4
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h5
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  h6
+  code {
+  padding: 0 0.2em;
+  font-size: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h2,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h3,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h4,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h5,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h6 {
+  display: inline-block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h1
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h2
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h3
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h4
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h5
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h6
+  .anchor {
+  margin-left: -40px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary
+  h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul.no-list,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol[type="a s"] {
+  list-style-type: lower-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol[type="A s"] {
+  list-style-type: upper-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol[type="i s"] {
+  list-style-type: lower-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol[type="I s"] {
+  list-style-type: upper-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol[type="1"] {
+  list-style-type: decimal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  div
+  > ol:not([type]) {
+  list-style-type: decimal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol
+  ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  li
+  > p {
+  margin-top: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  li
+  + li {
+  margin-top: 0.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dl {
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dl
+  dt {
+  padding: 0;
+  margin-top: calc(var(--md-rem) * 1);
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  dl
+  dd {
+  padding: 0 calc(var(--md-rem) * 1);
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  th {
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  th,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  td {
+  padding: 6px 13px;
+  border: 1px solid #d1d9e0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  td
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  tr {
+  background-color: #ffffff;
+  border-top: 1px solid #d1d9e0b3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  table
+  img {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  img[align="right"] {
+  padding-left: 20px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  img[align="left"] {
+  padding-right: 20px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .emoji {
+  max-width: none;
+  vertical-align: text-top;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.frame
+  > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #d1d9e0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.frame
+  span
+  img {
+  display: block;
+  float: left;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.frame
+  span
+  span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-center
+  > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-center
+  span
+  img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-right
+  > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.align-right
+  span
+  img {
+  margin: 0;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.float-left
+  span {
+  margin: 13px 0 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  span.float-right
+  > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: #818b981f;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  code
+  br,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  tt
+  br {
+  display: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  del
+  code {
+  text-decoration: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  samp {
+  font-size: 85%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre
+  code {
+  font-size: 100%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre
+  > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .highlight {
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .highlight
+  pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .highlight
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre {
+  padding: calc(var(--md-rem) * 1);
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  color: #1f2328;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  pre
+  tt {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .csv-data
+  td,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .csv-data
+  th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .csv-data
+  .blob-num {
+  padding: 10px calc(var(--md-rem) * 0.5) 9px;
+  text-align: right;
+  background: #ffffff;
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .csv-data
+  tr {
+  border-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .csv-data
+  th {
+  font-weight: 600;
+  background: #f6f8fa;
+  border-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [data-footnote-ref]::before {
+  content: "[";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [data-footnote-ref]::after {
+  content: "]";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes {
+  font-size: 12px;
+  color: #59636e;
+  border-top: 1px solid #d1d9e0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  ol {
+  padding-left: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  ol
+  ul {
+  display: inline-block;
+  padding-left: calc(var(--md-rem) * 1);
+  margin-top: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  li {
+  position: relative;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  li:target::before {
+  position: absolute;
+  top: calc(calc(var(--md-rem) * 0.5) * -1);
+  right: calc(calc(var(--md-rem) * 0.5) * -1);
+  bottom: calc(calc(var(--md-rem) * 0.5) * -1);
+  left: calc(calc(var(--md-rem) * 1.5) * -1);
+  pointer-events: none;
+  content: "";
+  border: 2px solid #0969da;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  li:target {
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .footnotes
+  .data-footnote-backref
+  g-emoji {
+  font-family: monospace;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-c {
+  color: #59636e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-c1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-s
+  .pl-v {
+  color: #0550ae;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-e,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-en {
+  color: #6639ba;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-smi,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-s
+  .pl-s1 {
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-ent {
+  color: #0550ae;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-k {
+  color: #cf222e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-s,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-pds,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-s
+  .pl-pse
+  .pl-s1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sr,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sr
+  .pl-cce,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sr
+  .pl-sre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sr
+  .pl-sra {
+  color: #0a3069;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-v,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-smw {
+  color: #953800;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-bu {
+  color: #82071e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-ii {
+  color: var(--fgColor-danger);
+  background-color: var(--bgColor-danger-muted);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-c2 {
+  color: #f6f8fa;
+  background-color: #cf222e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sr
+  .pl-cce {
+  font-weight: bold;
+  color: #116329;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-ml {
+  color: #3b2300;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mh,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mh
+  .pl-en,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-ms {
+  font-weight: bold;
+  color: #0550ae;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mi {
+  font-style: italic;
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mb {
+  font-weight: bold;
+  color: #1f2328;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-md {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mi1 {
+  color: #116329;
+  background-color: #dafbe1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mc {
+  color: #953800;
+  background-color: #ffd8b5;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mi2 {
+  color: #d1d9e0;
+  background-color: #0550ae;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-mdr {
+  font-weight: bold;
+  color: #8250df;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-ba {
+  color: #59636e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-sg {
+  color: #818b98;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .pl-corl {
+  text-decoration: underline;
+  color: #0a3069;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [role="button"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [role="tabpanel"][tabindex="0"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  button:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  summary:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  [tabindex="0"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  details-dialog:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  g-emoji {
+  display: inline-block;
+  min-width: 1ch;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1em;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: -0.075em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  g-emoji
+  img {
+  width: 1em;
+  height: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote) {
+  display: block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote):not(
+    :has(.snippet-clipboard-content, > pre)
+  ) {
+  width: fit-content;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote):has(
+    .snippet-clipboard-content,
+    > pre
+  ):focus-visible {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: 2px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item
+  label {
+  font-weight: 400;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item.enabled
+  label {
+  cursor: pointer;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item
+  + .task-list-item {
+  margin-top: calc(var(--md-rem) * 0.25);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item
+  .handle {
+  display: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .task-list-item-checkbox {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ul:dir(rtl)
+  .task-list-item-checkbox {
+  margin: 0 -1.6em 0.25em 0.2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ol:dir(rtl)
+  .task-list-item-checkbox {
+  margin: 0 -1.6em 0.25em 0.2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .contains-task-list:hover
+  .task-list-item-convert-container,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .contains-task-list:focus-within
+  .task-list-item-convert-container {
+  display: block;
+  width: auto;
+  height: 24px;
+  overflow: visible;
+  clip-path: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  ::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert {
+  padding: calc(var(--md-rem) * 0.5) calc(var(--md-rem) * 1);
+  margin-bottom: calc(var(--md-rem) * 1);
+  color: inherit;
+  border-left: 0.25em solid #d1d9e0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert
+  > :first-child {
+  margin-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert
+  .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-note {
+  border-left-color: #0969da;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-note
+  .markdown-alert-title {
+  color: #0969da;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-important {
+  border-left-color: #8250df;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-important
+  .markdown-alert-title {
+  color: #8250df;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-warning {
+  border-left-color: #9a6700;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-warning
+  .markdown-alert-title {
+  color: #9a6700;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-tip {
+  border-left-color: #1a7f37;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-tip
+  .markdown-alert-title {
+  color: #1a7f37;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-caution {
+  border-left-color: #cf222e;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-caution
+  .markdown-alert-title {
+  color: #d1242f;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  > *:first-child
+  > .heading-element:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="light"]
+  .ProseMirror
+  .highlight
+  pre:has(+ .zeroclipboard-container) {
+  min-height: 52px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"] {
+  --md-rem: calc(var(--editor-font, 16px) * 1);
+  --md-bg: #0d1117;
+  --md-fg: #f0f6fc;
+  --md-font:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --md-link: #4493f8;
+  --md-muted: #9198a1;
+  --md-code-bg: #151b23;
+  --md-code-fg: #f0f6fc;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .article-heading-input {
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #3d444db3;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .article-heading-input {
+  font-weight: 600;
+  line-height: 1.25;
+}
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror {
+  color-scheme: dark;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-weight: 400;
+  color: #f0f6fc;
+  background-color: #0d1117;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a {
+  text-decoration: underline;
+  text-underline-offset: calc(var(--md-rem) * 0.2);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5:hover
+  .anchor
+  .octicon-link:before,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6:hover
+  .anchor
+  .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: " ";
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  details,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  figcaption,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  figure {
+  display: block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary {
+  display: list-item;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [hidden] {
+  display: none !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a {
+  background-color: rgba(0, 0, 0, 0);
+  color: #4493f8;
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  abbr[title] {
+  border-bottom: none;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  b,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  strong {
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dfn {
+  font-style: italic;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1 {
+  margin: 0.67em 0;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #3d444db3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  mark {
+  background-color: #bb800926;
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  small {
+  font-size: 90%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  sub,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  sub {
+  bottom: -0.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  sup {
+  top: -0.5em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  kbd,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  figure {
+  margin: 1em calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #3d444db3;
+  height: 0.25em;
+  padding: 0;
+  margin: calc(var(--md-rem) * 1.5) 0;
+  background-color: #3d444d;
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="button"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="reset"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="checkbox"],
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="number"]::-webkit-inner-spin-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="search"]::-webkit-search-cancel-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  appearance: button;
+  font: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:hover {
+  text-decoration: underline;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ::placeholder {
+  color: #9198a1;
+  opacity: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  hr::before {
+  display: table;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-variant: tabular-nums;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  td,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  th {
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  details
+  summary {
+  cursor: pointer;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [role="button"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="radio"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [role="button"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="radio"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus:not(:focus-visible) {
+  outline: solid 1px rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [role="button"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="radio"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:not([class]):focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:not([class]):focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="radio"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="radio"]:focus-visible,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus-visible {
+  outline-offset: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  kbd {
+  display: inline-block;
+  padding: calc(var(--md-rem) * 0.25);
+  font:
+    11px ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  line-height: 10px;
+  color: #f0f6fc;
+  vertical-align: middle;
+  background-color: #151b23;
+  border: solid 1px var(--borderColor-muted);
+  border-bottom-color: var(--borderColor-muted);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 var(--borderColor-muted);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6 {
+  margin-top: calc(var(--md-rem) * 1.5);
+  margin-bottom: calc(var(--md-rem) * 1);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2 {
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #3d444db3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4 {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5 {
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6 {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: #9198a1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #9198a1;
+  border-left: 0.25em solid #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul
+  ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol
+  ol
+  ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dd {
+  margin-left: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  samp {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 12px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 12px;
+  word-wrap: normal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input::-webkit-outer-spin-button,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .mr-2 {
+  margin-right: calc(var(--md-rem) * 0.5) !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror::before {
+  display: table;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  > *:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .absent {
+  color: #f85149;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .anchor {
+  float: left;
+  padding-right: calc(var(--md-rem) * 0.25);
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .anchor:focus {
+  outline: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  p,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dl,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  details {
+  margin-top: 0;
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote
+  > :first-child {
+  margin-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6
+  .octicon-link {
+  color: #f0f6fc;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5:hover
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6:hover
+  .anchor {
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5:hover
+  .anchor
+  .octicon-link,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6:hover
+  .anchor
+  .octicon-link {
+  visibility: visible;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6
+  tt,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6
+  code {
+  padding: 0 0.2em;
+  font-size: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h2,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h3,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h4,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h5,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h6 {
+  display: inline-block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h1
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h2
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h3
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h4
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h5
+  .anchor,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h6
+  .anchor {
+  margin-left: -40px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary
+  h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul.no-list,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol[type="a s"] {
+  list-style-type: lower-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol[type="A s"] {
+  list-style-type: upper-alpha;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol[type="i s"] {
+  list-style-type: lower-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol[type="I s"] {
+  list-style-type: upper-roman;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol[type="1"] {
+  list-style-type: decimal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  div
+  > ol:not([type]) {
+  list-style-type: decimal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul
+  ul,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol
+  ol,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol
+  ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  li
+  > p {
+  margin-top: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  li
+  + li {
+  margin-top: 0.25em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dl {
+  padding: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dl
+  dt {
+  padding: 0;
+  margin-top: calc(var(--md-rem) * 1);
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  dl
+  dd {
+  padding: 0 calc(var(--md-rem) * 1);
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  th {
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  th,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  td {
+  padding: 6px 13px;
+  border: 1px solid #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  td
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  tr {
+  background-color: #0d1117;
+  border-top: 1px solid #3d444db3;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  tr:nth-child(2n) {
+  background-color: #151b23;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  table
+  img {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  img[align="right"] {
+  padding-left: 20px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  img[align="left"] {
+  padding-right: 20px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .emoji {
+  max-width: none;
+  vertical-align: text-top;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.frame
+  > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.frame
+  span
+  img {
+  display: block;
+  float: left;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.frame
+  span
+  span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-center
+  > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-center
+  span
+  img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-right
+  > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.align-right
+  span
+  img {
+  margin: 0;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.float-left
+  span {
+  margin: 13px 0 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  span.float-right
+  > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: #656c7633;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  code
+  br,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  tt
+  br {
+  display: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  del
+  code {
+  text-decoration: inherit;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  samp {
+  font-size: 85%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre
+  code {
+  font-size: 100%;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre
+  > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .highlight {
+  margin-bottom: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .highlight
+  pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .highlight
+  pre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre {
+  padding: calc(var(--md-rem) * 1);
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  color: #f0f6fc;
+  background-color: #151b23;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre
+  code,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre
+  tt {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .csv-data
+  td,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .csv-data
+  th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .csv-data
+  .blob-num {
+  padding: 10px calc(var(--md-rem) * 0.5) 9px;
+  text-align: right;
+  background: #0d1117;
+  border: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .csv-data
+  tr {
+  border-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .csv-data
+  th {
+  font-weight: 600;
+  background: #151b23;
+  border-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [data-footnote-ref]::before {
+  content: "[";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [data-footnote-ref]::after {
+  content: "]";
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes {
+  font-size: 12px;
+  color: #9198a1;
+  border-top: 1px solid #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  ol {
+  padding-left: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  ol
+  ul {
+  display: inline-block;
+  padding-left: calc(var(--md-rem) * 1);
+  margin-top: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  li {
+  position: relative;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  li:target::before {
+  position: absolute;
+  top: calc(calc(var(--md-rem) * 0.5) * -1);
+  right: calc(calc(var(--md-rem) * 0.5) * -1);
+  bottom: calc(calc(var(--md-rem) * 0.5) * -1);
+  left: calc(calc(var(--md-rem) * 1.5) * -1);
+  pointer-events: none;
+  content: "";
+  border: 2px solid #1f6feb;
+  border-radius: 6px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  li:target {
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .footnotes
+  .data-footnote-backref
+  g-emoji {
+  font-family: monospace;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-c {
+  color: #9198a1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-c1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-s
+  .pl-v {
+  color: #79c0ff;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-e,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-en {
+  color: #d2a8ff;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-smi,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-s
+  .pl-s1 {
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-ent {
+  color: #7ee787;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-k {
+  color: #ff7b72;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-s,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-pds,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-s
+  .pl-pse
+  .pl-s1,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sr,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sr
+  .pl-cce,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sr
+  .pl-sre,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sr
+  .pl-sra {
+  color: #a5d6ff;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-v,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-smw {
+  color: #ffa657;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-bu {
+  color: #f85149;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-ii {
+  color: var(--fgColor-danger);
+  background-color: var(--bgColor-danger-muted);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-c2 {
+  color: #f0f6fc;
+  background-color: #b62324;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sr
+  .pl-cce {
+  font-weight: bold;
+  color: #7ee787;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-ml {
+  color: #f2cc60;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mh,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mh
+  .pl-en,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-ms {
+  font-weight: bold;
+  color: #1f6feb;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mi {
+  font-style: italic;
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mb {
+  font-weight: bold;
+  color: #f0f6fc;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-md {
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mi1 {
+  color: #aff5b4;
+  background-color: #033a16;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mc {
+  color: #ffdfb6;
+  background-color: #5a1e02;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mi2 {
+  color: #f0f6fc;
+  background-color: #1158c7;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-mdr {
+  font-weight: bold;
+  color: #d2a8ff;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-ba {
+  color: #9198a1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-sg {
+  color: #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .pl-corl {
+  text-decoration: underline;
+  color: #a5d6ff;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [role="button"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [role="tabpanel"][tabindex="0"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  button:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  summary:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  [tabindex="0"]:focus:not(:focus-visible),
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  details-dialog:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  g-emoji {
+  display: inline-block;
+  min-width: 1ch;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1em;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: -0.075em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  g-emoji
+  img {
+  width: 1em;
+  height: 1em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote) {
+  display: block;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote):not(
+    :has(.snippet-clipboard-content, > pre)
+  ) {
+  width: fit-content;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:has(> p, > div, > pre, > blockquote):has(
+    .snippet-clipboard-content,
+    > pre
+  ):focus-visible {
+  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline-offset: 2px;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item
+  label {
+  font-weight: 400;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item.enabled
+  label {
+  cursor: pointer;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item
+  + .task-list-item {
+  margin-top: calc(var(--md-rem) * 0.25);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item
+  .handle {
+  display: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .task-list-item-checkbox {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul:dir(rtl)
+  .task-list-item-checkbox {
+  margin: 0 -1.6em 0.25em 0.2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ol:dir(rtl)
+  .task-list-item-checkbox {
+  margin: 0 -1.6em 0.25em 0.2em;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .contains-task-list:hover
+  .task-list-item-convert-container,
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .contains-task-list:focus-within
+  .task-list-item-convert-container {
+  display: block;
+  width: auto;
+  height: 24px;
+  overflow: visible;
+  clip-path: none;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  ::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert {
+  padding: calc(var(--md-rem) * 0.5) calc(var(--md-rem) * 1);
+  margin-bottom: calc(var(--md-rem) * 1);
+  color: inherit;
+  border-left: 0.25em solid #3d444d;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert
+  > :first-child {
+  margin-top: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert
+  .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-note {
+  border-left-color: #1f6feb;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-note
+  .markdown-alert-title {
+  color: #4493f8;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-important {
+  border-left-color: #8957e5;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-important
+  .markdown-alert-title {
+  color: #ab7df8;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-warning {
+  border-left-color: #9e6a03;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-warning
+  .markdown-alert-title {
+  color: #d29922;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-tip {
+  border-left-color: #238636;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-tip
+  .markdown-alert-title {
+  color: #3fb950;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-caution {
+  border-left-color: #da3633;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .markdown-alert.markdown-alert-caution
+  .markdown-alert-title {
+  color: #f85149;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  > *:first-child
+  > .heading-element:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-scope[data-markdown-style="github"][data-markdown-mode="dark"]
+  .ProseMirror
+  .highlight
+  pre:has(+ .zeroclipboard-container) {
+  min-height: 52px;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"] {
+  --md-rem: calc(var(--editor-font, 16px) * 0.5555555555555556);
+  --md-bg: #f9f9f9;
+  --md-fg: #4a4a4a;
+  --md-font: serif;
+  --md-link: #1d7484;
+  --md-muted: #4a4a4a;
+  --md-code-bg: #f1f1f1;
+  --md-code-fg: #4a4a4a;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .article-heading-input {
+  line-height: 1.1;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  font-weight: 700;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-size: 2.35em;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror {
+  line-height: 1.618;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 684px) {
+  .markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+    .ProseMirror {
+  }
+}
+@media (max-width: 382px) {
+  .markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+    .ProseMirror {
+  }
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h6 {
+  line-height: 1.1;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  font-weight: 700;
+  margin-top: calc(var(--md-rem) * 3);
+  margin-bottom: calc(var(--md-rem) * 1.5);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h1 {
+  font-size: 2.35em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h2 {
+  font-size: 2em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h3 {
+  font-size: 1.75em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h4 {
+  font-size: 1.5em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h5 {
+  font-size: 1.25em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  h6 {
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  p {
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  small,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  sub,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  sup {
+  font-size: 75%;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  hr {
+  border-color: #1d7484;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  a {
+  text-decoration: none;
+  color: #1d7484;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  a:visited {
+  color: #144f5a;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  a:hover {
+  color: #982c61;
+  border-bottom: 2px solid #4a4a4a;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  ul {
+  padding-left: 1.4em;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  li {
+  margin-bottom: 0.4em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 0.8em;
+  border-left: 5px solid #1d7484;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+  background-color: #f1f1f1;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote
+  p {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  img,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  video {
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  pre {
+  background-color: #f1f1f1;
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+  font-size: 0.9em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  kbd,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  samp {
+  font-size: 0.9em;
+  padding: 0 0.5em;
+  background-color: #f1f1f1;
+  white-space: pre-wrap;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  pre
+  > code {
+  padding: 0;
+  background-color: transparent;
+  white-space: pre;
+  font-size: 1em;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: calc(var(--md-rem) * 2);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  td,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  th {
+  padding: 0.5em;
+  border-bottom: 1px solid #f1f1f1;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea {
+  border: 1px solid #4a4a4a;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea:focus {
+  border: 1px solid #1d7484;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea {
+  width: 100%;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  .button,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  button,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="submit"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="reset"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="button"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="file"]::file-selector-button {
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #1d7484;
+  color: #f9f9f9;
+  border-radius: 1px;
+  border: 1px solid #1d7484;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  .button:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  button:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="submit"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="reset"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="button"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="file"]::file-selector-button:hover {
+  background-color: #982c61;
+  color: #f9f9f9;
+  outline: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  .button[disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  button[disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="submit"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="reset"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="button"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="file"][disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  .button:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  button:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="submit"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="reset"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="button"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="file"]:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  select,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input {
+  color: #4a4a4a;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  select:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input:focus {
+  border: 1px solid #1d7484;
+  outline: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  input[type="checkbox"]:focus {
+  outline: 1px dotted #1d7484;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  label,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  legend,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="light"]
+  .ProseMirror
+  fieldset {
+  display: block;
+  margin-bottom: calc(var(--md-rem) * 0.5);
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"] {
+  --md-rem: calc(var(--editor-font, 16px) * 0.5555555555555556);
+  --md-bg: #222222;
+  --md-fg: #c9c9c9;
+  --md-font: serif;
+  --md-link: #ffffff;
+  --md-muted: #c9c9c9;
+  --md-code-bg: #4a4a4a;
+  --md-code-fg: #c9c9c9;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .article-heading-input {
+  line-height: 1.1;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  font-weight: 700;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .article-heading-input {
+  font-size: 2.35em;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror {
+  line-height: 1.618;
+  color: #c9c9c9;
+  background-color: #222222;
+}
+
+@media (max-width: 684px) {
+  .markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+    .ProseMirror {
+  }
+}
+@media (max-width: 382px) {
+  .markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+    .ProseMirror {
+  }
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6 {
+  line-height: 1.1;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  font-weight: 700;
+  margin-top: calc(var(--md-rem) * 3);
+  margin-bottom: calc(var(--md-rem) * 1.5);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h1 {
+  font-size: 2.35em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h2 {
+  font-size: 2em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h3 {
+  font-size: 1.75em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h4 {
+  font-size: 1.5em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h5 {
+  font-size: 1.25em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  h6 {
+  font-size: 1em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  p {
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  small,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  sub,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  sup {
+  font-size: 75%;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  hr {
+  border-color: #ffffff;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:visited {
+  color: #e6e6e6;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  a:hover {
+  color: #c9c9c9;
+  border-bottom: 2px solid #c9c9c9;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  ul {
+  padding-left: 1.4em;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  li {
+  margin-bottom: 0.4em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 0.8em;
+  border-left: 5px solid #ffffff;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+  background-color: #4a4a4a;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  blockquote
+  p {
+  margin-bottom: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  img,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  video {
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre {
+  background-color: #4a4a4a;
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  margin-top: 0px;
+  margin-bottom: calc(var(--md-rem) * 2.5);
+  font-size: 0.9em;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  code,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  kbd,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  samp {
+  font-size: 0.9em;
+  padding: 0 0.5em;
+  background-color: #4a4a4a;
+  white-space: pre-wrap;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  pre
+  > code {
+  padding: 0;
+  background-color: transparent;
+  white-space: pre;
+  font-size: 1em;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: calc(var(--md-rem) * 2);
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  td,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  th {
+  padding: 0.5em;
+  border-bottom: 1px solid #4a4a4a;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  textarea {
+  border: 1px solid #c9c9c9;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  textarea:focus {
+  border: 1px solid #ffffff;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  textarea {
+  width: 100%;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  .button,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  button,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="submit"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="reset"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="button"],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="file"]::file-selector-button {
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #ffffff;
+  color: #222222;
+  border-radius: 1px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  .button:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  button:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="submit"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="reset"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="button"]:hover,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="file"]::file-selector-button:hover {
+  background-color: #c9c9c9;
+  color: #222222;
+  outline: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  .button[disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  button[disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="submit"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="reset"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="button"][disabled],
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="file"][disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  .button:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  button:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="submit"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="reset"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="button"]:focus-visible,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="file"]:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  textarea,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  select,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input {
+  color: #c9c9c9;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  background-color: #4a4a4a;
+  border: 1px solid #4a4a4a;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  textarea:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  select:focus,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input:focus {
+  border: 1px solid #ffffff;
+  outline: 0;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  input[type="checkbox"]:focus {
+  outline: 1px dotted #ffffff;
+}
+
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  label,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  legend,
+.markdown-scope[data-markdown-style="sakura"][data-markdown-mode="dark"]
+  .ProseMirror
+  fieldset {
+  display: block;
+  margin-bottom: calc(var(--md-rem) * 0.5);
+  font-weight: 600;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"] {
+  --md-rem: calc(var(--editor-font, 16px) * 1);
+  --md-bg: #ffffff;
+  --md-fg: #444;
+  --md-font: "Open Sans Condensed", sans-serif;
+  --md-link: #3498db;
+  --md-muted: #444;
+  --md-code-bg: #fafafa;
+  --md-code-fg: #444;
+}
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-weight: inherit;
+  line-height: 1.42;
+}
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-size: calc(var(--md-rem) * 3.998);
+}
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .article-heading-input {
+  font-family: Arimo, Helvetica, sans-serif;
+}
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .article-heading-input {
+  border-bottom: 2px solid #fafafa;
+  padding-bottom: calc(var(--md-rem) * 0.5);
+  text-align: center;
+}
+@media print {
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    *,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    *:before,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    a,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    a[href^="#"]:after,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    pre,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    thead {
+    display: table-header-group;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    tr,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    img {
+    max-width: 100% !important;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    p,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    h2,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    h2,
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror
+    h3 {
+    page-break-after: avoid;
+  }
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  pre {
+  padding: calc(var(--md-rem) * 0.5);
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  a,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  a:visited {
+  color: #3498db;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  a:hover,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  a:focus,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  a:active {
+  color: #2980b9;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-no-decoration {
+  text-decoration: none;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror {
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror {
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+    .ProseMirror {
+  }
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror {
+  line-height: 1.85;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  p,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-p {
+  font-size: calc(var(--md-rem) * 1);
+  margin-bottom: calc(var(--md-rem) * 1.3);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h1,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h2,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h3,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h4 {
+  margin: calc(var(--md-rem) * 1.414) 0 calc(var(--md-rem) * 0.5);
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h1 {
+  margin-top: 0;
+  font-size: calc(var(--md-rem) * 3.998);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h2 {
+  font-size: calc(var(--md-rem) * 2.827);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h3 {
+  font-size: calc(var(--md-rem) * 1.999);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h4 {
+  font-size: calc(var(--md-rem) * 1.414);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h5 {
+  font-size: calc(var(--md-rem) * 1.121);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h6,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-h6 {
+  font-size: calc(var(--md-rem) * 0.88);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  small,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  .modest-small {
+  font-size: 0.707em;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  img,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  canvas,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  iframe,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  video,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  svg,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  select,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  textarea {
+  max-width: 100%;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror {
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror {
+  color: #444;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h3,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h4,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h5,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h6 {
+  font-family: Arimo, Helvetica, sans-serif;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h1,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h2,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  h3 {
+  border-bottom: 2px solid #fafafa;
+  margin-bottom: calc(var(--md-rem) * 1.15);
+  padding-bottom: calc(var(--md-rem) * 0.5);
+  text-align: center;
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  blockquote {
+  border-left: 8px solid #fafafa;
+  padding: calc(var(--md-rem) * 1);
+}
+
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  pre,
+.markdown-scope[data-markdown-style="modest"][data-markdown-mode="light"]
+  .ProseMirror
+  code {
+  background-color: #fafafa;
+}
