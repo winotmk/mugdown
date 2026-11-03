@@ -5,7 +5,7 @@ from pathlib import Path
 
 from PIL import Image
 
-for name in ("toolbar", "themes"):
+for name in ("toolbar", "themes", "windows", "toolbar-en", "themes-en", "windows-en"):
     root = Path(".qa/readme-frames") / name
     timeline = json.loads((root / "timeline.json").read_text(encoding="utf-8"))
     images = []

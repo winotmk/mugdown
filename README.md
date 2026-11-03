@@ -2,11 +2,11 @@
   <img src="src-tauri/icons/128x128.png" alt="mugdown 咖啡杯图标" width="96" height="96">
   <h1>mugdown</h1>
   <p>一个极简小巧的本地 Markdown 编辑器，支持 Windows 与 macOS</p>
-  <p><strong>Windows x64 便携版 · ZIP 约 2.5 MB · 简体中文 / English</strong></p>
+  <p><strong>Windows x64 便携版 · ZIP 约 2.5 MB · <a href="README.md">简体中文</a> / <a href="README.en.md">English</a></strong></p>
   <p><a href="https://github.com/winotmk/mugdown/releases/latest"><strong>下载最新版</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#从源码构建">从源码构建</a></p>
 </div>
 
-![mugdown 浅色编辑器：只有文档、菜单和收起的工具栏](docs/media/editor-light.png)
+![mugdown 的空白页：杯子图标、拖入提示、打开和新建按钮](docs/media/empty-zh.png)
 
 mugdown 是一个小巧的本地 Markdown 编辑器。直接打开、编辑和保存普通 `.md` 文件，不需要账号，也不用导入到专有文档库。窗口默认没有侧栏；只打开一个文档时，标签栏也会让出空间。
 
@@ -38,6 +38,12 @@ Windows x64 的便携 ZIP 约 **2.5 MB**，解压后的主程序约 **4.2 MB**�
 ![mugdown 在 Nord 皮肤下的编辑界面](docs/media/editor-dark.png)
 
 </details>
+
+### 拖出标签，拆分窗口；拖回标题栏，合并窗口
+
+同时打开两份文档时，把一个标签拖出窗口，就能单独摆放。需要合回去时，拖住独立窗口的标题栏空白处，移到另一个 mugdown 窗口内，看到高亮提示后松手。
+
+![双窗口操作演示：拖出标签拆分，再拖回标题栏合并](docs/media/windows.gif)
 
 ## 快速开始
 
@@ -104,6 +110,7 @@ macOS 已配置 Apple Silicon / Intel 通用构建，尚未实机验收，当前
 
 ## 版本发布
 
+- [mugdown v0.2.8](https://github.com/winotmk/mugdown/releases/tag/v0.2.8) — 简化空白页，补充中英文 README 和窗口拆分、合并演示
 - [mugdown v0.2.7](https://github.com/winotmk/mugdown/releases/tag/v0.2.7) — 修复 Markdown 与 HTML 混排；支持直接插入并编辑 HTML 块
 - [mugdown v0.2.6](https://github.com/winotmk/mugdown/releases/tag/v0.2.6) — Windows x64 便携 ZIP、SHA-256 校验文件和版本说明
 - [所有 Releases](https://github.com/winotmk/mugdown/releases)

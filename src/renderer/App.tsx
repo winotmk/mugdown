@@ -1262,7 +1262,6 @@ export default function App() {
           ) : (
             <div className="empty">
               <img src={cup} alt="" />
-              <h1>{t("留一点空白，开始写。")} </h1>
               <p>{t("拖入 Markdown 文档，或者")} </p>
               <div>
                 <button className="primary" onClick={() => run("open")}>
@@ -1588,7 +1587,7 @@ export default function App() {
               )}
             </div>
             <p className="dialog-footnote">
-              mugdown 0.2.7 ·{" "}
+              mugdown 0.2.8 ·{" "}
               {native ? (mac ? "macOS" : "Windows") : t("浏览器预览")}{" "}
               {t("· 本地 Markdown 编辑器")}{" "}
             </p>

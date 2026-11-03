@@ -46,7 +46,7 @@ const path = require("node:path");
   };
   try {
     await page.route(
-      /\/(src-tauri\/icons\/128x128\.png|docs\/media\/(?:editor-light|editor-dark)\.png|docs\/media\/(?:toolbar|themes)\.gif)$/,
+      /\/(src-tauri\/icons\/128x128\.png|docs\/media\/(?:empty-(?:zh|en)|editor-dark(?:-en)?)\.png|docs\/media\/(?:toolbar|themes|windows)(?:-en)?\.gif)$/,
       (route) =>
         route.fulfill({
           path: path.resolve(new URL(route.request().url()).pathname.slice(1)),
