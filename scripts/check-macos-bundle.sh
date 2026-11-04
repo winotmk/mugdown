@@ -12,6 +12,7 @@ test -x "$mugdown_binary" || fail "Packaged macOS executable is missing: $mugdow
 plutil -lint "$mugdown_bundle/Contents/Info.plist" || fail "The app's Info.plist is invalid."
 # Apple's lipo consumes every argument after -verify_arch as an architecture.
 lipo "$mugdown_binary" -verify_arch arm64 x86_64 || fail "The macOS executable must contain both arm64 and x86_64."
+codesign --verify --deep --strict "$mugdown_bundle" || fail "The macOS app's code signature is invalid."
 
 # Run a copy so portable settings and presets cannot enter the shipped bundle.
 mugdown_fixture=$(mktemp -d "${TMPDIR:-/tmp}/mugdown-smoke.XXXXXX")

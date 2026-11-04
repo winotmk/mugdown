@@ -87,6 +87,8 @@ Tauri packages go to `src-tauri/target/<target>/release/bundle/`. To create the 
 
 The [GitHub Actions workflow](.github/workflows/build.yml) builds Windows and macOS artifacts. The releases below currently include Windows packages.
 
+See [macOS build and installation notes](docs/macos.md) (Chinese) for the universal test package, signing status, and native menus.
+
 `npm test` checks Markdown compatibility, editing history, and localization. `npm run build` checks TypeScript and builds the production frontend. With `npm run dev` running, `npm run check:ui` runs the interface checks in Microsoft Edge.
 
 ## Repository layout

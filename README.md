@@ -88,6 +88,8 @@ Tauri 安装包生成在 `src-tauri/target/<target>/release/bundle/`。Windows �
 
 macOS 已配置 Apple Silicon / Intel 通用构建，尚未实机验收，当前 Releases 提供 Windows 版。仓库中的 [构建工作流](.github/workflows/build.yml) 会保存 Windows 和 macOS 构建产物。
 
+macOS 测试包的下载、安装与原生菜单说明见 [macOS 构建与安装](docs/macos.md)。
+
 `npm test` 检查文档兼容、编辑历史与语言包；`npm run build` 执行类型检查和生产构建。启动 `npm run dev` 后可运行 `npm run check:ui`，使用本机 Edge 进行界面验收。`cargo test --manifest-path src-tauri/Cargo.toml --release --features custom-protocol` 检查旧设置兼容与新设置保存。原生文件、图片和跨窗口流程由 `scripts/native-smoke.cjs` 在隔离测试目录中验证。
 
 语言配置在 `src/i18n/locales/*.json`，新增文件会自动出现在语言选择器中，具体见 [添加语言](docs/i18n.md)。
