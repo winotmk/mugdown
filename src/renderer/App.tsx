@@ -517,6 +517,20 @@ export default function App() {
     const setup = async () => {
       unsubs.push(await subscribe<Workspace>("workspace", reconcile));
       unsubs.push(
+        await subscribe<string>("menu-command", (command) => {
+          if (
+            (command === "undo" || command === "redo") &&
+            document.activeElement?.closest(
+              "input,textarea,select,.extension-source",
+            )
+          ) {
+            document.execCommand(command);
+            return;
+          }
+          void commandRef.current(command);
+        }),
+      );
+      unsubs.push(
         await subscribe<string | null>(
           "window-merge-preview",
           setWindowMergePreview,

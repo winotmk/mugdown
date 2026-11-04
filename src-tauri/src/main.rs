@@ -1,4 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
+mod mac_menu;
 mod presets;
 mod settings_file;
 mod window_docking;
@@ -188,11 +190,10 @@ fn make_window(
         .title("mugdown")
         .inner_size(980., 780.)
         .min_inner_size(540., 360.)
-        .visible(false)
-        .drag_and_drop(true);
+        .visible(false);
     #[cfg(target_os = "windows")]
     {
-        builder = builder.decorations(false);
+        builder = builder.decorations(false).drag_and_drop(true);
     }
     #[cfg(target_os = "macos")]
     {
@@ -759,9 +760,18 @@ fn save_settings(
         broadcast(&app, &s);
         return Err(error);
     }
+    #[cfg(target_os = "macos")]
+    let menu_language =
+        (s.settings.language != settings.language).then(|| settings.language.clone());
     s.settings = settings;
     s.settings_storage.error = None;
     broadcast(&app, &s);
+    drop(s);
+    #[cfg(target_os = "macos")]
+    if let Some(language) = menu_language {
+        app.set_menu(mac_menu::build(&app, &language).map_err(err)?)
+            .map_err(err)?;
+    }
     Ok(())
 }
 #[tauri::command]
@@ -1002,6 +1012,11 @@ fn main() {
                 system: app.path().app_config_dir()?.join("settings.json"),
             };
             let loaded = settings_file::load_selected(&paths);
+            #[cfg(target_os = "macos")]
+            {
+                app.set_menu(mac_menu::build(app.handle(), &loaded.settings.language)?)?;
+                app.on_menu_event(mac_menu::dispatch);
+            }
             let catalog = presets::load(&paths.portable.parent().unwrap().join("presets"));
             let state = app.state::<Store>();
             {

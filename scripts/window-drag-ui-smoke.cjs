@@ -172,6 +172,32 @@ const { chromium } = require("playwright"),
       before,
     );
     checks.push("文件名的文档拖动入口保留，不误触整窗移动");
+    await page.evaluate(() => __mugMock.emit("menu-command", "find"));
+    await page.locator(".find-input").waitFor();
+    await page.locator(".find-input").pressSequentially("needle");
+    await page.evaluate(() => __mugMock.emit("menu-command", "undo"));
+    await page.waitForFunction(
+      () => document.querySelector(".find-input").value === "",
+    );
+    checks.push("原生菜单撤销优先作用于聚焦的输入框");
+    await page.getByRole("button", { name: "关闭查找", exact: true }).click();
+    await page.evaluate(() => __mugMock.emit("menu-command", "appearance"));
+    await page.getByRole("dialog", { name: "外观设置", exact: true }).waitFor();
+    await page
+      .getByRole("button", { name: "关闭外观设置", exact: true })
+      .click();
+    checks.push("原生菜单事件调用当前窗口的查找与外观设置");
+    await page.evaluate(() => __mugMock.emit("menu-command", "close-window"));
+    await page.getByRole("button", { name: "不保存", exact: true }).waitFor();
+    await page.getByRole("button", { name: "取消", exact: true }).click();
+    assert.equal(
+      await page.evaluate(() =>
+        __mugMock.commands.some((c) => c.command === "plugin:window|destroy"),
+      ),
+      false,
+    );
+    assert((await page.locator(".ProseMirror").innerText()).includes("unsaved"));
+    checks.push("原生菜单关闭窗口保留未保存提醒，取消后保留草稿");
     assert.deepEqual(errors, []);
     await fs.writeFile(
       ".qa/window-drag-ui-checks.json",
