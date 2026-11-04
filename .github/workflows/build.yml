@@ -28,6 +28,10 @@ jobs:
           node-version: 24
           cache: npm
       - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src-tauri -> target"
+          cache-on-failure: true
       - name: Add macOS targets
         if: runner.os == 'macOS'
         run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
@@ -41,11 +45,13 @@ jobs:
           npm run build
           cargo test --locked --release --manifest-path src-tauri/Cargo.toml --features custom-protocol --target "$(rustc -vV | sed -n 's/^host: //p')"
       - name: Build desktop application
+        id: desktop_build
         run: npm run tauri -- build --ci --target ${{ matrix.target }} -- --locked
       - name: Check macOS universal app and startup
         if: runner.os == 'macOS'
         run: bash scripts/check-macos-bundle.sh src-tauri/target/universal-apple-darwin/release/bundle/macos/mugdown.app
       - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() && steps.desktop_build.outcome == 'success' }}
         with:
           name: ${{ matrix.artifact }}
           path: |
