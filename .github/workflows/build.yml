@@ -16,7 +16,8 @@ jobs:
           - os: windows-latest
             target: x86_64-pc-windows-msvc
             artifact: mugdown-windows-x64
-          - os: macos-latest
+          # Use a stable Intel host; the output still includes both architectures.
+          - os: macos-15-intel
             target: universal-apple-darwin
             artifact: mugdown-macos-universal
     runs-on: ${{ matrix.os }}
