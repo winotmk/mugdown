@@ -2,7 +2,7 @@
   <img src="src-tauri/icons/128x128.png" alt="mugdown 咖啡杯图标" width="96" height="96">
   <h1>mugdown</h1>
   <p>一个极简小巧的本地 Markdown 编辑器，支持 Windows 与 macOS</p>
-  <p><strong>Windows x64 便携版 · ZIP 约 2.5 MB · <a href="README.md">简体中文</a> / <a href="README.en.md">English</a></strong></p>
+  <p><strong>Windows x64 便携版 · macOS 通用版 · <a href="README.md">简体中文</a> / <a href="README.en.md">English</a></strong></p>
   <p><a href="https://github.com/winotmk/mugdown/releases/latest"><strong>下载最新版</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#从源码构建">从源码构建</a></p>
 </div>
 
@@ -15,7 +15,7 @@ Windows x64 的便携 ZIP 约 **2.5 MB**，解压后的主程序约 **4.2 MB**�
 | 桌面平台 | 系统 WebView | 当前状态 |
 | --- | --- | --- |
 | Windows x64 | WebView2 | [便携版可下载](https://github.com/winotmk/mugdown/releases/latest) |
-| macOS（Apple Silicon / Intel） | WKWebView | 已配置通用构建，待实机验收 |
+| macOS（Apple Silicon / Intel） | WKWebView | [通用 DMG 可下载](https://github.com/winotmk/mugdown/releases/latest) |
 | 图形桌面 Linux | WebKitGTK | 架构可移植，待平台适配和验收 |
 
 ## 设计
@@ -51,11 +51,14 @@ Windows x64 的便携 ZIP 约 **2.5 MB**，解压后的主程序约 **4.2 MB**�
 2. 解压到可写目录，双击 `mugdown.exe`。需要 Microsoft Edge WebView2 运行时；缺少时可从 [微软官网下载](https://developer.microsoft.com/microsoft-edge/webview2/#download-section)。
 3. 把 Markdown 文件拖入窗口，或按 <kbd>Ctrl</kbd> + <kbd>O</kbd> 打开。<kbd>Ctrl</kbd> + <kbd>S</kbd> 保存，<kbd>Ctrl</kbd> + <kbd>/</kbd> 切换可视化与 MD 源码。
 
+**Mac**：从同一 Releases 页面下载通用 `.dmg`，打开后将 mugdown 拷贝到「应用程序」。快捷键使用 <kbd>⌘</kbd>，主菜单位于屏幕顶部。签名与安装说明见 [macOS 构建与安装](docs/macos.md)。
+
 - **整理段落**：悬停到段落左侧，点击类型按钮转换格式，或拖住点阵把手调整顺序。
 - **编辑 HTML**：Markdown 中的 HTML 会在可视化模式渲染，独立片段带有 `HTML` 标签。可从段落左侧菜单选择「插入 HTML 块」，输入源码后点击「应用」。保存时保留原始 HTML。
 - **同时写几份文档**：打开多个文件后会显示标签。拖出标签可以拆成独立窗口；把窗口标题栏拖到另一个 mugdown 窗口中即可合并。
 - **保存图片**：粘贴到已保存的文档中，图片会存入文档旁的同名文件夹。移动文档时可以一起带走。
-- **带走偏好**：默认把 `settings.json` 存在程序旁；也可以在外观设置中改用系统目录。升级便携版时，可将旧设置和个人 `presets` 复制到新目录。
+- **Windows 偏好**：默认把 `settings.json` 存在程序旁；也可以在外观设置中改用系统目录。升级便携版时，可将旧设置和个人 `presets` 复制到新目录。
+- **Mac 偏好**：默认保存在用户的 Application Support 中，首次修改设置时才生成配置文件。外观设置可打开配置目录，也可切换为 app 旁的 `mugdown-data/` 便携模式。
 
 [添加 Markdown 排版预设](docs/presets.md) · [添加界面语言](docs/i18n.md)
 
@@ -86,9 +89,9 @@ Tauri 安装包生成在 `src-tauri/target/<target>/release/bundle/`。Windows �
 ./scripts/package-portable.ps1 -ExecutablePath src-tauri/target/x86_64-pc-windows-msvc/release/mugdown.exe
 ```
 
-macOS 已配置 Apple Silicon / Intel 通用构建，尚未实机验收，当前 Releases 提供 Windows 版。仓库中的 [构建工作流](.github/workflows/build.yml) 会保存 Windows 和 macOS 构建产物。
+Releases 同时提供 Windows x64 便携 ZIP 和 Apple Silicon / Intel 通用 DMG。仓库中的 [构建工作流](.github/workflows/build.yml) 保存构建产物；`main` 上的版本标签在两平台构建与检查通过后，自动发布安装包及 SHA-256 校验文件。
 
-macOS 测试包的下载、安装与原生菜单说明见 [macOS 构建与安装](docs/macos.md)。
+macOS 安装、原生菜单与配置存储说明见 [macOS 构建与安装](docs/macos.md)。
 
 `npm test` 检查文档兼容、编辑历史与语言包；`npm run build` 执行类型检查和生产构建。启动 `npm run dev` 后可运行 `npm run check:ui`，使用本机 Edge 进行界面验收。`cargo test --manifest-path src-tauri/Cargo.toml --release --features custom-protocol` 检查旧设置兼容与新设置保存。原生文件、图片和跨窗口流程由 `scripts/native-smoke.cjs` 在隔离测试目录中验证。
 
@@ -112,6 +115,7 @@ macOS 测试包的下载、安装与原生菜单说明见 [macOS 构建与安装
 
 ## 版本发布
 
+- [mugdown v0.2.9](https://github.com/winotmk/mugdown/releases/tag/v0.2.9) — 发布 Mac 通用版，优化原生菜单、窗口按钮与配置存储，支持可选便携模式
 - [mugdown v0.2.8](https://github.com/winotmk/mugdown/releases/tag/v0.2.8) — 简化空白页，补充中英文 README 和窗口拆分、合并演示
 - [mugdown v0.2.7](https://github.com/winotmk/mugdown/releases/tag/v0.2.7) — 修复 Markdown 与 HTML 混排；支持直接插入并编辑 HTML 块
 - [mugdown v0.2.6](https://github.com/winotmk/mugdown/releases/tag/v0.2.6) — Windows x64 便携 ZIP、SHA-256 校验文件和版本说明

@@ -1,6 +1,6 @@
 {
   "name": "mugdown",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "private": true,
   "type": "module",
   "description": "A small, document-first Markdown editor for Windows and macOS",

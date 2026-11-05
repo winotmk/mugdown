@@ -1,6 +1,8 @@
 # macOS 构建与安装
 
-在 [GitHub Actions](https://github.com/winotmk/mugdown/actions/workflows/build.yml) 中选择对应分支的成功构建，下载 `mugdown-macos-universal` 产物。解压后打开其中的 `.dmg`，将 mugdown 拷贝到「应用程序」再启动。
+在 [Releases](https://github.com/winotmk/mugdown/releases/latest) 下载 `mugdown-版本号-macos-universal.dmg`，打开后将 mugdown 拷贝到「应用程序」再启动。下载旁的 `.sha256` 文件可用于校验。
+
+开发版本也可在 [GitHub Actions](https://github.com/winotmk/mugdown/actions/workflows/build.yml) 中选择对应分支的成功构建，下载 `mugdown-macos-universal` 产物，解压后使用其中的 `.dmg`。
 
 通用包同时包含 Apple Silicon（arm64）与 Intel（x86_64）。请使用 DMG 安装；Actions 直接归档的 `.app` 文件不保留可执行权限。
 

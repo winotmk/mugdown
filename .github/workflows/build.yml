@@ -64,6 +64,35 @@ jobs:
       - name: Check macOS universal app and startup
         if: runner.os == 'macOS'
         run: bash scripts/check-macos-bundle.sh src-tauri/target/universal-apple-darwin/release/bundle/macos/mugdown.app
+      - name: Package Windows portable release
+        if: runner.os == 'Windows' && startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          ./scripts/check-portable-settings.ps1 -ExecutablePath src-tauri/target/x86_64-pc-windows-msvc/release/mugdown.exe
+          ./scripts/package-portable.ps1 -ExecutablePath src-tauri/target/x86_64-pc-windows-msvc/release/mugdown.exe
+      - name: Prepare macOS release download
+        if: runner.os == 'macOS' && startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          mugdown_version=$(node -p "require('./package.json').version")
+          mugdown_images=(src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg)
+          test "${#mugdown_images[@]}" -eq 1
+          hdiutil verify "${mugdown_images[0]}"
+          mkdir -p "release/v$mugdown_version"
+          mugdown_name="mugdown-$mugdown_version-macos-universal.dmg"
+          cp "${mugdown_images[0]}" "release/v$mugdown_version/$mugdown_name"
+          cd "release/v$mugdown_version"
+          shasum -a 256 "$mugdown_name" > "$mugdown_name.sha256"
+      - name: Upload release downloads
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}-release
+          path: |
+            release/v*/*.zip
+            release/v*/*.dmg
+            release/v*/*.sha256
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() && steps.desktop_build.outcome == 'success' }}
         with:
@@ -72,3 +101,64 @@ jobs:
             src-tauri/target/${{ matrix.target }}/release/bundle/**
             src-tauri/target/${{ matrix.target }}/release/mugdown.exe
           if-no-files-found: error
+  release:
+    name: Publish release from main
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: desktop
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify release version and main ancestry
+        shell: bash
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+          node <<'NODE'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const version = require('./package.json').version;
+          assert.match(version, /^\d+\.\d+\.\d+$/);
+          assert.equal(process.env.RELEASE_TAG, `v${version}`);
+          const lock = require('./package-lock.json');
+          assert.equal(lock.version, version);
+          assert.equal(lock.packages[''].version, version);
+          assert.equal(require('./src-tauri/tauri.conf.json').version, version);
+          assert.equal(fs.readFileSync('src-tauri/Cargo.toml', 'utf8').match(/^version\s*=\s*"([^"]+)"/m)[1], version);
+          assert.equal(fs.readFileSync('src-tauri/Cargo.lock', 'utf8').match(/\[\[package\]\]\s+name = "mugdown"\s+version = "([^"]+)"/)[1], version);
+          assert(fs.existsSync(`docs/release-${version}.md`));
+          NODE
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mugdown-*-release
+          path: .release-downloads
+      - name: Verify release downloads
+        shell: bash
+        run: |
+          mugdown_version=$(node -p "require('./package.json').version")
+          mkdir -p release-assets
+          for mugdown_name in "mugdown-$mugdown_version-windows-x64.zip" "mugdown-$mugdown_version-macos-universal.dmg"; do
+            mapfile -t mugdown_files < <(find .release-downloads -type f -name "$mugdown_name")
+            test "${#mugdown_files[@]}" -eq 1
+            cp "${mugdown_files[0]}" "release-assets/$mugdown_name"
+            cp "${mugdown_files[0]}.sha256" "release-assets/$mugdown_name.sha256"
+          done
+          cd release-assets
+          sha256sum --check -- *.sha256
+      - name: Publish verified downloads
+        shell: bash
+        run: |
+          mugdown_notes="docs/release-${RELEASE_TAG#v}.md"
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq '.isDraft' > "$RUNNER_TEMP/mugdown-release-draft"; then
+            test "$(cat "$RUNNER_TEMP/mugdown-release-draft")" = true || { echo '::error::This release is already published; its downloads will not be replaced.'; exit 1; }
+            gh release upload "$RELEASE_TAG" release-assets/* --repo "$GITHUB_REPOSITORY" --clobber
+            gh release edit "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --title "mugdown $RELEASE_TAG" --notes-file "$mugdown_notes"
+          else
+            gh release create "$RELEASE_TAG" release-assets/* --repo "$GITHUB_REPOSITORY" --verify-tag --target main --title "mugdown $RELEASE_TAG" --notes-file "$mugdown_notes" --draft
+          fi
+          gh release edit "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest

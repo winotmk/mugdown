@@ -2,7 +2,7 @@
   <img src="src-tauri/icons/128x128.png" alt="mugdown coffee mug icon" width="96" height="96">
   <h1>mugdown</h1>
   <p>A tiny, minimal editor for local Markdown files.</p>
-  <p><strong>Windows x64 portable · ZIP about 2.5 MB · <a href="README.md">简体中文</a> / <a href="README.en.md">English</a></strong></p>
+  <p><strong>Windows x64 portable · macOS universal · <a href="README.md">简体中文</a> / <a href="README.en.md">English</a></strong></p>
   <p><a href="https://github.com/winotmk/mugdown/releases/latest"><strong>Download</strong></a> · <a href="#quick-start">Quick start</a> · <a href="#build-from-source">Build from source</a></p>
 </div>
 
@@ -15,7 +15,7 @@ The Windows x64 portable ZIP is about **2.5 MB**; the executable is about **4.2 
 | Desktop platform | System webview | Status |
 | --- | --- | --- |
 | Windows x64 | WebView2 | [Portable download available](https://github.com/winotmk/mugdown/releases/latest) |
-| macOS (Apple Silicon / Intel) | WKWebView | Universal build configured; awaiting testing on a Mac |
+| macOS (Apple Silicon / Intel) | WKWebView | [Universal DMG available](https://github.com/winotmk/mugdown/releases/latest) |
 | Desktop Linux | WebKitGTK | The architecture is portable; platform integration and testing are pending |
 
 ## Design
@@ -51,10 +51,13 @@ With two documents open, drag a tab outside the window to give it a window of it
 2. Extract it to a folder you can write to and run `mugdown.exe`. If WebView2 is missing, [download it from Microsoft](https://developer.microsoft.com/microsoft-edge/webview2/#download-section).
 3. Drop a Markdown file into the window or press <kbd>Ctrl</kbd> + <kbd>O</kbd>. Use <kbd>Ctrl</kbd> + <kbd>S</kbd> to save and <kbd>Ctrl</kbd> + <kbd>/</kbd> to switch between visual editing and Markdown source.
 
+**Mac:** Download the universal `.dmg` from the same Releases page and copy mugdown to Applications. Shortcuts use <kbd>⌘</kbd>, and the main menus appear in the system menu bar. See the [macOS installation notes](docs/macos.md) (Chinese) for signing details.
+
 - **Arrange blocks:** Hover to the left of a block to change its type or drag it into a new position.
 - **Edit HTML:** HTML in a Markdown file renders in visual mode, with a label on standalone HTML blocks. To add one, choose **Insert HTML block** from the block menu, enter the source, and click **Apply**. Saving preserves the HTML source.
 - **Keep images with your document:** Images pasted into a saved document go into a matching folder next to the file. Take that folder with you when you move the document.
-- **Keep your preferences:** Settings live in `settings.json` next to the executable by default. You can switch to the system settings directory in Appearance. When upgrading the portable version, copy your settings and any custom `presets` to the new folder.
+- **Windows preferences:** Settings live in `settings.json` next to the executable by default. You can switch to the system settings directory in Appearance. When upgrading the portable version, copy your settings and any custom `presets` to the new folder.
+- **Mac preferences:** Settings use the current user's Application Support directory and are written when you first change a preference. Appearance settings can open that folder or enable portable mode in `mugdown-data/` beside the app.
 
 [Add document style presets](docs/presets.md) · [Add an interface language](docs/i18n.md) (Chinese)
 
@@ -85,9 +88,9 @@ Tauri packages go to `src-tauri/target/<target>/release/bundle/`. To create the 
 ./scripts/package-portable.ps1 -ExecutablePath src-tauri/target/x86_64-pc-windows-msvc/release/mugdown.exe
 ```
 
-The [GitHub Actions workflow](.github/workflows/build.yml) builds Windows and macOS artifacts. The releases below currently include Windows packages.
+The [GitHub Actions workflow](.github/workflows/build.yml) builds Windows and macOS artifacts. Version tags on `main` publish the Windows portable ZIP, universal macOS DMG, and SHA-256 checksums after both platforms pass their build and validation steps.
 
-See [macOS build and installation notes](docs/macos.md) (Chinese) for the universal test package, signing status, and native menus.
+See [macOS build and installation notes](docs/macos.md) (Chinese) for installation, signing status, native menus, and settings storage.
 
 `npm test` checks Markdown compatibility, editing history, and localization. `npm run build` checks TypeScript and builds the production frontend. With `npm run dev` running, `npm run check:ui` runs the interface checks in Microsoft Edge.
 
@@ -107,6 +110,7 @@ See [macOS build and installation notes](docs/macos.md) (Chinese) for the univer
 
 ## Releases
 
+- [mugdown v0.2.9](https://github.com/winotmk/mugdown/releases/tag/v0.2.9) — universal Mac release with native menus, improved window controls, user settings storage, and optional portable mode
 - [mugdown v0.2.8](https://github.com/winotmk/mugdown/releases/tag/v0.2.8) — simpler empty page, bilingual README, and a window detaching and merging demo
 - [mugdown v0.2.7](https://github.com/winotmk/mugdown/releases/tag/v0.2.7) — renders mixed Markdown and HTML and lets you insert and edit HTML blocks
 - [All releases](https://github.com/winotmk/mugdown/releases)

@@ -1675,7 +1675,7 @@ export default function App() {
               )}
             </div>
             <p className="dialog-footnote">
-              mugdown 0.2.8 ·{" "}
+              mugdown 0.2.9 ·{" "}
               {native ? (mac ? "macOS" : "Windows") : t("浏览器预览")}{" "}
               {t("· 本地 Markdown 编辑器")}{" "}
             </p>
