@@ -37,6 +37,20 @@ jobs:
         run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
       - run: npm ci
       - run: npm test
+      - name: Test macOS renderer and settings controls
+        if: runner.os == 'macOS'
+        shell: bash
+        env:
+          MUGDOWN_BROWSER_EXECUTABLE: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+        run: |
+          npm run dev > "$RUNNER_TEMP/mugdown-vite.log" 2>&1 &
+          mugdown_vite_pid=$!
+          trap 'kill "$mugdown_vite_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:5173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/mac-ui-smoke.cjs || { cat "$RUNNER_TEMP/mugdown-vite.log"; exit 1; }
       - run: cargo fetch --locked --manifest-path src-tauri/Cargo.toml
       - name: Test macOS backend
         if: runner.os == 'macOS'

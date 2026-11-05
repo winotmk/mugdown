@@ -23,6 +23,9 @@ base64 = "0.22"
 url = "2"
 percent-encoding = "2"
 
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-foundation = { version = "0.3.2", default-features = false, features = ["std", "NSArray", "NSString", "NSUserDefaults", "NSLocale"] }
+
 [profile.release]
 panic = "abort"
 codegen-units = 1

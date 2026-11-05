@@ -2092,6 +2092,7 @@ version = "0.2.8"
 dependencies = [
  "arboard",
  "base64 0.22.1",
+ "objc2-foundation",
  "percent-encoding",
  "serde",
  "serde_json",

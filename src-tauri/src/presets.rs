@@ -1,7 +1,7 @@
 use serde::Serialize;
 use std::{collections::BTreeMap, fs, path::Path};
 
-const DEFAULTS: [(&str, &str); 4] = [
+pub(crate) const DEFAULTS: [(&str, &str); 4] = [
     ("Air.css", include_str!("../../assets/presets/Air.css")),
     ("Book.css", include_str!("../../assets/presets/Book.css")),
     (

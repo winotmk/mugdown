@@ -1,6 +1,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 #[cfg_attr(not(target_os = "macos"), allow(dead_code))]
 mod mac_menu;
+#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
+mod mac_platform;
+#[cfg_attr(not(target_os = "macos"), allow(dead_code))]
+mod mac_settings;
 mod presets;
 mod settings_file;
 mod window_docking;
@@ -124,7 +128,10 @@ struct Workspace {
     history: HashMap<String, Journal>,
     settings: Settings,
     settings_storage: settings_file::StorageInfo,
+    #[cfg(not(target_os = "macos"))]
     settings_paths: settings_file::Paths,
+    #[cfg(target_os = "macos")]
+    settings_paths: mac_settings::Paths,
     presets: presets::Catalog,
 }
 impl Workspace {
@@ -147,6 +154,8 @@ fn err(e: impl std::fmt::Display) -> String {
 }
 fn broadcast(app: &tauri::AppHandle, s: &Workspace) {
     let _ = app.emit("workspace", s.snapshot());
+    #[cfg(target_os = "macos")]
+    mac_menu::refresh(app);
 }
 fn new_doc(s: &mut Workspace, label: &str, path: Option<String>, raw: String) -> Document {
     let id = uid();
@@ -199,7 +208,8 @@ fn make_window(
     {
         builder = builder
             .title_bar_style(tauri::TitleBarStyle::Overlay)
-            .hidden_title(true);
+            .hidden_title(true)
+            .traffic_light_position(tauri::LogicalPosition::new(14., 16.));
     }
     if let (Some(x), Some(y)) = (x, y) {
         builder = builder.position(x, y);
@@ -752,26 +762,22 @@ fn save_settings(
         return Err("CSS 过大".into());
     }
     let mut s = state.lock().unwrap();
-    if let Err(error) = settings_file::save(
+    #[cfg(not(target_os = "macos"))]
+    let saved = settings_file::save(
         s.settings_paths.active(s.settings_storage.location),
         &settings,
-    ) {
+    );
+    #[cfg(target_os = "macos")]
+    let saved = mac_settings::save(&s.settings_paths, s.settings_storage.location, &settings);
+    if let Err(error) = saved {
         s.settings_storage.error = Some(error.clone());
         broadcast(&app, &s);
         return Err(error);
     }
-    #[cfg(target_os = "macos")]
-    let menu_language =
-        (s.settings.language != settings.language).then(|| settings.language.clone());
     s.settings = settings;
     s.settings_storage.error = None;
     broadcast(&app, &s);
     drop(s);
-    #[cfg(target_os = "macos")]
-    if let Some(language) = menu_language {
-        app.set_menu(mac_menu::build(&app, &language).map_err(err)?)
-            .map_err(err)?;
-    }
     Ok(())
 }
 #[tauri::command]
@@ -781,9 +787,22 @@ fn set_settings_location(
     location: settings_file::Location,
 ) -> Result<(), String> {
     let mut s = state.lock().unwrap();
-    match settings_file::switch_location(&s.settings_paths, location, &s.settings) {
+    #[cfg(not(target_os = "macos"))]
+    let switched = settings_file::switch_location(&s.settings_paths, location, &s.settings);
+    #[cfg(target_os = "macos")]
+    let switched = mac_settings::switch_location(
+        &s.settings_paths,
+        s.settings_storage.location,
+        location,
+        &s.settings,
+    );
+    match switched {
         Ok(storage) => {
             s.settings_storage = storage;
+            #[cfg(target_os = "macos")]
+            {
+                s.presets = mac_settings::catalog(&s.settings_paths, location);
+            }
             broadcast(&app, &s);
             Ok(())
         }
@@ -797,13 +816,23 @@ fn set_settings_location(
 #[tauri::command]
 fn refresh_presets(app: tauri::AppHandle, state: State<Store>) {
     let mut s = state.lock().unwrap();
-    s.presets = presets::load(&s.settings_paths.portable.parent().unwrap().join("presets"));
+    #[cfg(not(target_os = "macos"))]
+    {
+        s.presets = presets::load(&s.settings_paths.portable.parent().unwrap().join("presets"));
+    }
+    #[cfg(target_os = "macos")]
+    {
+        s.presets = mac_settings::catalog(&s.settings_paths, s.settings_storage.location);
+    }
     broadcast(&app, &s);
 }
 #[tauri::command]
 fn open_presets_folder(state: State<Store>) -> Result<(), String> {
     let s = state.lock().unwrap();
+    #[cfg(not(target_os = "macos"))]
     let path = s.settings_paths.portable.parent().unwrap().join("presets");
+    #[cfg(target_os = "macos")]
+    let path = s.settings_paths.presets(s.settings_storage.location);
     fs::create_dir_all(&path).map_err(err)?;
     #[cfg(target_os = "windows")]
     std::process::Command::new("explorer.exe")
@@ -816,6 +845,23 @@ fn open_presets_folder(state: State<Store>) -> Result<(), String> {
         .spawn()
         .map_err(err)?;
     Ok(())
+}
+#[cfg(target_os = "macos")]
+#[tauri::command]
+fn open_settings_folder(state: State<Store>) -> Result<(), String> {
+    let path = {
+        let s = state.lock().unwrap();
+        mac_settings::ensure_settings_directory(&s.settings_paths, s.settings_storage.location)?
+    };
+    let status = std::process::Command::new("open")
+        .arg(path)
+        .status()
+        .map_err(err)?;
+    if status.success() {
+        Ok(())
+    } else {
+        Err("无法打开设置目录".into())
+    }
 }
 #[tauri::command]
 fn import_image(
@@ -995,6 +1041,8 @@ fn main() {
             set_settings_location,
             refresh_presets,
             open_presets_folder,
+            #[cfg(target_os = "macos")]
+            open_settings_folder,
             import_image,
             import_image_file,
             image_source,
@@ -1006,18 +1054,31 @@ fn main() {
         .setup(|app| {
             let label = format!("editor-{}", uid());
             let executable = std::env::current_exe()?;
+            #[cfg(not(target_os = "macos"))]
             let path = settings_file::portable_path(&executable, cfg!(target_os = "macos"));
+            #[cfg(not(target_os = "macos"))]
             let paths = settings_file::Paths {
                 portable: path,
                 system: app.path().app_config_dir()?.join("settings.json"),
             };
+            #[cfg(target_os = "macos")]
+            let paths = mac_settings::Paths::new(
+                &executable,
+                app.path().app_config_dir()?.join("settings.json"),
+            );
+            #[cfg(not(target_os = "macos"))]
             let loaded = settings_file::load_selected(&paths);
             #[cfg(target_os = "macos")]
+            let loaded = mac_settings::load(&paths, mac_platform::language());
+            #[cfg(target_os = "macos")]
             {
-                app.set_menu(mac_menu::build(app.handle(), &loaded.settings.language)?)?;
+                app.set_menu(mac_menu::build(app.handle(), mac_platform::language())?)?;
                 app.on_menu_event(mac_menu::dispatch);
             }
+            #[cfg(not(target_os = "macos"))]
             let catalog = presets::load(&paths.portable.parent().unwrap().join("presets"));
+            #[cfg(target_os = "macos")]
+            let catalog = mac_settings::catalog(&paths, loaded.storage.location);
             let state = app.state::<Store>();
             {
                 let mut s = state.lock().unwrap();
@@ -1068,6 +1129,13 @@ fn main() {
                     .collect();
                 let _ = open_paths(app, &label, paths);
             }
+        }
+        #[cfg(target_os = "macos")]
+        tauri::RunEvent::WindowEvent {
+            event: tauri::WindowEvent::Focused(true),
+            ..
+        } => {
+            mac_menu::refresh(app);
         }
         tauri::RunEvent::WindowEvent {
             label,

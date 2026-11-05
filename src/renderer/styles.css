@@ -238,6 +238,15 @@ kbd {
 .is-mac .document-caption {
   padding-right: 65px;
 }
+.is-native-mac .titlebar {
+  padding-left: 86px;
+}
+.is-native-mac .mac-edit-tools .dropdown {
+  left: auto;
+  right: 0;
+  max-height: min(70vh, 650px);
+  overflow-y: auto;
+}
 .tabbar {
   height: 40px;
   background: var(--tabs);

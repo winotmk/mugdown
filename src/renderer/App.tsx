@@ -134,6 +134,7 @@ function scopedCss(css: string) {
 }
 
 export default function App() {
+  const nativeMac = native && mac;
   const editItems: MenuItem[] = [
     ["undo", t("撤销"), "Z"],
     ["redo", t("重做"), "Shift+Z"],
@@ -177,6 +178,7 @@ export default function App() {
   const [modes, setModes] = useState<Record<string, Mode>>({});
   const [menu, setMenu] = useState<string | null>(null);
   const [appearance, setAppearance] = useState(false);
+  const [storageBusy, setStorageBusy] = useState(false);
   const [toolbarHover, setToolbarHover] = useState(false);
   const [toolbarSuppressed, setToolbarSuppressed] = useState(false);
   const toolbarTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -809,7 +811,7 @@ export default function App() {
   } as CSSProperties;
   return (
     <div
-      className={`app ${mac ? "is-mac" : ""}`}
+      className={`app ${mac ? "is-mac" : ""}${nativeMac ? " is-native-mac" : ""}`}
       data-theme={theme.id}
       data-dark={dark}
       style={style}
@@ -853,23 +855,25 @@ export default function App() {
           />
           <span data-tauri-drag-region>mugdown</span>
         </div>
-        <nav className="menubar" aria-label={t("主菜单")}>
-          {[t("文件"), t("编辑"), t("窗口")].map((title) => (
-            <div className="menu-anchor" key={title}>
-              <button
-                className={menu === title ? "active" : ""}
-                onClick={() => setMenu(menu === title ? null : title)}
-              >
-                {title}
-              </button>
-              {menu === title && (
-                <div className="dropdown" role="menu">
-                  {renderMenu(menuItems as MenuItem[])}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+        {!nativeMac && (
+          <nav className="menubar" aria-label={t("主菜单")}>
+            {[t("文件"), t("编辑"), t("窗口")].map((title) => (
+              <div className="menu-anchor" key={title}>
+                <button
+                  className={menu === title ? "active" : ""}
+                  onClick={() => setMenu(menu === title ? null : title)}
+                >
+                  {title}
+                </button>
+                {menu === title && (
+                  <div className="dropdown" role="menu">
+                    {renderMenu(menuItems as MenuItem[])}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+        )}
         <div
           className="document-caption"
           data-tauri-drag-region
@@ -1067,13 +1071,35 @@ export default function App() {
                     </button>
                   ),
                 )}
-                <button
-                  aria-label={t("更多编辑操作")}
-                  title={t("更多编辑操作")}
-                  onClick={() => setMenu(menu === t("编辑") ? null : t("编辑"))}
-                >
-                  <Ellipsis size={17} />
-                </button>
+                {nativeMac ? (
+                  <div className="menu-anchor mac-edit-tools">
+                    <button
+                      aria-label={t("更多编辑操作")}
+                      title={t("更多编辑操作")}
+                      aria-expanded={menu === t("编辑")}
+                      onClick={() =>
+                        setMenu(menu === t("编辑") ? null : t("编辑"))
+                      }
+                    >
+                      <Ellipsis size={17} />
+                    </button>
+                    {menu === t("编辑") && (
+                      <div className="dropdown" role="menu">
+                        {renderMenu(editItems)}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    aria-label={t("更多编辑操作")}
+                    title={t("更多编辑操作")}
+                    onClick={() =>
+                      setMenu(menu === t("编辑") ? null : t("编辑"))
+                    }
+                  >
+                    <Ellipsis size={17} />
+                  </button>
+                )}
               </div>
               <div className="mode-switch" aria-label={t("编辑模式")}>
                 {(
@@ -1567,24 +1593,72 @@ export default function App() {
               {state.settingsStorage ? (
                 <>
                   <p className="muted">
-                    {state.settingsStorage.location === "system"
-                      ? t("设置随当前系统用户保存。")
-                      : t("设置保存在程序旁，移动程序文件夹即可携带设置。")}
+                    {nativeMac
+                      ? state.settingsStorage.location === "portable"
+                        ? t(
+                            "设置与个人预设保存在 app 旁的 mugdown-data 文件夹，移动时请一起复制。",
+                          )
+                        : t(
+                            "设置与个人预设随当前 macOS 用户保存，首次修改设置时才创建配置文件。",
+                          )
+                      : state.settingsStorage.location === "system"
+                        ? t("设置随当前系统用户保存。")
+                        : t("设置保存在程序旁，移动程序文件夹即可携带设置。")}
                   </p>
-                  <label className="storage-toggle">
-                    <span>{t("随系统目录保存")}</span>
-                    <input
-                      type="checkbox"
-                      role="switch"
-                      aria-label={t("随系统目录保存")}
-                      checked={state.settingsStorage.location === "system"}
-                      onChange={(e) =>
-                        void call("set_settings_location", {
-                          location: e.target.checked ? "system" : "portable",
-                        }).catch(fail)
-                      }
-                    />
-                  </label>
+                  {nativeMac ? (
+                    <>
+                      <label className="storage-toggle">
+                        <span>{t("便携模式")}</span>
+                        <input
+                          type="checkbox"
+                          role="switch"
+                          aria-label={t("便携模式")}
+                          disabled={storageBusy}
+                          checked={
+                            state.settingsStorage.location === "portable"
+                          }
+                          onChange={(e) => {
+                            const location = e.target.checked
+                              ? "portable"
+                              : "system";
+                            setStorageBusy(true);
+                            void call("set_settings_location", { location })
+                              .catch(fail)
+                              .finally(() => setStorageBusy(false));
+                          }}
+                        />
+                      </label>
+                      <p className="muted">
+                        {t(
+                          "切换时迁移当前设置与个人预设；关闭便携模式后保留 app 旁的数据副本。",
+                        )}
+                      </p>
+                      <button
+                        className="secondary"
+                        disabled={storageBusy}
+                        onClick={() =>
+                          void call("open_settings_folder").catch(fail)
+                        }
+                      >
+                        {t("打开配置文件夹")}
+                      </button>
+                    </>
+                  ) : (
+                    <label className="storage-toggle">
+                      <span>{t("随系统目录保存")}</span>
+                      <input
+                        type="checkbox"
+                        role="switch"
+                        aria-label={t("随系统目录保存")}
+                        checked={state.settingsStorage.location === "system"}
+                        onChange={(e) =>
+                          void call("set_settings_location", {
+                            location: e.target.checked ? "system" : "portable",
+                          }).catch(fail)
+                        }
+                      />
+                    </label>
+                  )}
                   <input
                     aria-label={t("设置文件路径")}
                     readOnly
